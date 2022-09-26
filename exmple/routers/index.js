@@ -5,7 +5,9 @@ const router = createRouter({
     mode: 'hash',
     history: createWebHashHistory(),
     routes: [
-        {path:'/button',component:()=>import('./button.vue')}
+        {path:'/button',component:()=>import('./button.vue')},
+        {path:'/tabs',component:()=>import('./tabs.vue')},
+        {path:'/tree',component:()=>import('./tree.vue')}
     ]
 })
 
