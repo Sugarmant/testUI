@@ -8,13 +8,15 @@ export default defineComponent({
     },
     methods: {
         handleClickLink (event) {
+            console.log('click')
             this.$emit('click', event);
+            
         }
     },
     render () {
         return (
             <button>
-            asdsa
+            asd
             </button>
         )
     }
