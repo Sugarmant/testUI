@@ -1,21 +1,17 @@
 import {defineComponent,h} from 'vue'
 
 export default defineComponent({
-    name: 'TButton',
+    name: 'Button',
     emits: ['click'],
     props: {
         
     },
-    methods: {
-        handleClickLink (event) {
-            console.log('click')
-            this.$emit('click', event);
-            
-        }
-    },
     render () {
+        const handleClickLink = e=>{
+            this.$emit('click',e)
+        }
         return (
-            <button>
+            <button onClick={handleClickLink}>
             asd
             </button>
         )

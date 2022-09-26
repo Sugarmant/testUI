@@ -1,7 +1,7 @@
 import {defineComponent,h} from 'vue'
 
 export default defineComponent({
-    name: 'TSteps',
+    name: 'Steps',
     emits: ['click'],
     props: {
         

@@ -1,7 +1,7 @@
 import {defineComponent,h} from 'vue'
 
 export default defineComponent({
-    name: 'TInput',
+    name: 'Input',
     emits: ['click'],
     props: {
         

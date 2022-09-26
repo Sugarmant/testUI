@@ -1,7 +1,7 @@
 import {defineComponent,h} from 'vue'
 
 export default defineComponent({
-    name: 'TProgress',
+    name: 'Progress',
     emits: ['click'],
     props: {
         

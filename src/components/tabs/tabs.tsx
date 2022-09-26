@@ -1,7 +1,7 @@
 import {defineComponent,h} from 'vue'
 
 export default defineComponent({
-    name: 'TTab',
+    name: 'Tab',
     emits: ['click'],
     props: {
         

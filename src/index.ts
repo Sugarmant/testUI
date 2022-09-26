@@ -1,32 +1,33 @@
-import { default as TButton } from './components/button';
-import { default as TInput } from './components/input';
-import { default as TTabs } from './components/tabs';
-import { default as TTree } from './components/tree';
-import { default as TStep} from './components/step';
-import { default as TSteps} from './components/steps'
-import { default as TProgress} from './components/steps'
-import { default as TSelect} from './components/steps'
+import { default as Button } from './components/button';
+import { default as Input } from './components/input';
+import { default as Tabs } from './components/tabs';
+import { default as Tree } from './components/tree';
+import { default as Step} from './components/step';
+import { default as Steps} from './components/steps'
+import { default as Progress} from './components/steps'
+import { default as Select} from './components/steps'
 
 export {
-    TButton,
-    TInput,
-    TTabs,
-    TTree,
-    TStep,
-    TSteps,
-    TProgress,
-    TSelect
+    Button,
+    Input,
+    Tabs,
+    Tree,
+    Step,
+    Steps,
+    Progress,
+    Select
 }
 
+
 const components = [
-    TButton,
-    TInput,
-    TTabs,
-    TTree,
-    TStep,
-    TSteps,
-    TProgress,
-    TSelect
+    Button,
+    Input,
+    Tabs,
+    Tree,
+    Step,
+    Steps,
+    Progress,
+    Select
 ]
 
 export default function(vue){

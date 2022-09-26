@@ -1,7 +1,7 @@
 import {defineComponent,h} from 'vue'
 
 export default defineComponent({
-    name: 'TSelect',
+    name: 'Select',
     emits: ['click'],
     props: {
         
