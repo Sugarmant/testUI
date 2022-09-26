@@ -10,6 +10,7 @@ const router = createRouter({
         {path:'/tree',component:()=>import('./tree.vue')},
         {path:'/steps',component:()=>import('./steps.vue')},
         {path:'/progress',component:()=>import('./progress.vue')},
+        {path:'/select',component:()=>import('./select.vue')},
 
     ]
 })

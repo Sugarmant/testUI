@@ -4,6 +4,8 @@ import { default as TTabs } from './components/tabs';
 import { default as TTree } from './components/tree';
 import { default as TStep} from './components/step';
 import { default as TSteps} from './components/steps'
+import { default as TProgress} from './components/steps'
+import { default as TSelect} from './components/steps'
 
 export {
     TButton,
@@ -11,7 +13,9 @@ export {
     TTabs,
     TTree,
     TStep,
-    TSteps
+    TSteps,
+    TProgress,
+    TSelect
 }
 
 const components = [
@@ -20,7 +24,9 @@ const components = [
     TTabs,
     TTree,
     TStep,
-    TSteps
+    TSteps,
+    TProgress,
+    TSelect
 ]
 
 export default function(vue){
