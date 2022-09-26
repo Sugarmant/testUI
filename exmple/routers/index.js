@@ -7,7 +7,9 @@ const router = createRouter({
     routes: [
         {path:'/button',component:()=>import('./button.vue')},
         {path:'/tabs',component:()=>import('./tabs.vue')},
-        {path:'/tree',component:()=>import('./tree.vue')}
+        {path:'/tree',component:()=>import('./tree.vue')},
+        {path:'/steps',component:()=>import('./steps.vue')},
+
     ]
 })
 
