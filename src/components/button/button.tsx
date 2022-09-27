@@ -11,7 +11,7 @@ export default defineComponent({
             this.$emit('click',e)
         }
         return (
-            <button onClick={handleClickLink}>
+            <button class={'t-btn'} onClick={handleClickLink}>
             asd
             </button>
         )
