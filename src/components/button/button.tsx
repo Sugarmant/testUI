@@ -31,23 +31,38 @@ export default defineComponent({
                 return oneOf(value,['default','circle','square'])
             },
             default:'default'
+        },
+        disabled:{
+            validator(value:boolean | string){
+                return oneOf(value,[true,false,''])
+            },
+            default:false
+        },
+        nativeType:{
+            type:String
         }
     },
     render () {
         const handleClickLink = e=>{
             this.$emit('click',e)
         }
-
+        
         const slots = this.$slots.default && this.$slots.default()
 
         return (
-            <button class={[
-                prefixCls,
-                this.type!='default'?`${prefixCls}-${this.type}`:'',
-                this.size!='default'?`${prefixCls}-${this.size}`:'',
-                this.transparent!='default'?`${prefixCls}-${this.transparent}`:'',
-                this.shape!='default'?`${prefixCls}-${this.shape}`:''
-            ]} onClick={handleClickLink}>
+            <button 
+                class={[
+                    prefixCls,
+                    this.type!='default'?`${prefixCls}-${this.type}`:'',
+                    this.size!='default'?`${prefixCls}-${this.size}`:'',
+                    this.transparent!='default'?`${prefixCls}-${this.transparent}`:'',
+                    this.shape!='default'?`${prefixCls}-${this.shape}`:'',
+                    this.disabled || this.disabled === ''?`${prefixCls}-disabled`:''
+                ]} 
+                disabled={this.disabled || this.disabled === ''} 
+                type={this.nativeType?this.nativeType:''}
+                onClick={handleClickLink}
+            >
 
                 {slots && slots.length?slots:null}
             </button>
