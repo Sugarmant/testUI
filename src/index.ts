@@ -1,4 +1,5 @@
 import { default as Button } from './components/button';
+import { default as ButtonGroup} from './components/button-group'
 import { default as Input } from './components/input';
 import { default as Tabs } from './components/tabs';
 import { default as Tree } from './components/tree';
@@ -9,6 +10,7 @@ import { default as Select} from './components/steps'
 
 export {
     Button,
+    ButtonGroup,
     Input,
     Tabs,
     Tree,
@@ -21,6 +23,7 @@ export {
 
 const components = [
     Button,
+    ButtonGroup,
     Input,
     Tabs,
     Tree,

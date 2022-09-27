@@ -8,9 +8,27 @@ export default defineComponent({
     name: 'Button',
     emits: ['click'],
     props: {
-        type: {
+        type:{
             validator (value:string) {
-                return oneOf(value, ['default', 'primary', 'dashed', 'text', 'info', 'success', 'warning', 'error']);
+                return oneOf(value, ['default', 'primary', 'dashed', 'info', 'success', 'warning', 'error']);
+            },
+            default:'default'
+        },
+        size:{
+            validator(value:string){
+                return oneOf(value,['default','large','small'])
+            },
+            default:'default'
+        },
+        transparent:{
+            validator(value:string){
+                return oneOf(value,['default','full','half'])
+            },
+            default:'default'
+        },
+        shape:{
+            validator(value:string){
+                return oneOf(value,['default','circle','square'])
             },
             default:'default'
         }
@@ -20,9 +38,18 @@ export default defineComponent({
             this.$emit('click',e)
         }
 
+        const slots = this.$slots.default && this.$slots.default()
+
         return (
-            <button class={[prefixCls,`${prefixCls}-${this.type}`]} onClick={handleClickLink}>
-            asd
+            <button class={[
+                prefixCls,
+                this.type!='default'?`${prefixCls}-${this.type}`:'',
+                this.size!='default'?`${prefixCls}-${this.size}`:'',
+                this.transparent!='default'?`${prefixCls}-${this.transparent}`:'',
+                this.shape!='default'?`${prefixCls}-${this.shape}`:''
+            ]} onClick={handleClickLink}>
+
+                {slots && slots.length?slots:null}
             </button>
         )
     }
