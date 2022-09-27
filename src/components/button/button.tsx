@@ -1,5 +1,7 @@
 import {defineComponent,h} from 'vue'
 
+const prefixCls = 't-btn';
+
 export default defineComponent({
     name: 'Button',
     emits: ['click'],
@@ -11,7 +13,7 @@ export default defineComponent({
             this.$emit('click',e)
         }
         return (
-            <button class={'t-btn'} onClick={handleClickLink}>
+            <button class={prefixCls} onClick={handleClickLink}>
             asd
             </button>
         )
