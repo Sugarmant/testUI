@@ -1,6 +1,7 @@
 <template>
     <!-- <t-button @click=""></t-button> -->
     <Button></Button>
+    <Button type="primary"></Button>
 </template>
 
 <script>
