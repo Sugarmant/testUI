@@ -6,10 +6,6 @@
     </ButtonGroup>
     &nbsp;
     &nbsp;
-    <Icon size="small" icon="&#xe7c3;" />
-    <Icon size="default" icon="&#xe7c3;" />
-    <Icon size="large" icon="&#xe7c3;" />
-    <Icon size="default" icon="&#xe7c3;">啊收到了卡萨丁</Icon>
     
     <ButtonGroup>
         <Button @click="changeTransparent('default')">默认</Button>
@@ -45,14 +41,17 @@
     <br/>
     
     <!-- <ButtonGroup> -->
+        <Button loading icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="primary" />
+        <Button loading icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="info">带文字的loading</Button>
+
         <Button icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="primary" />
         <Button icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="error">文字</Button>
 
         <Button icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" />
-        <Button icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size">文字</Button>
+        <Button icon="&#xe916;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size">文字</Button>
 
         <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size">Default</Button>
-        <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="primary">Primary</Button>
+        <Button :loading="false" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="primary">Primary</Button>
         <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="dashed">Dashed</Button>
         <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="info">Info</Button>
         <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="success">Success</Button>

@@ -1,3 +1,11 @@
+@keyframes ani-load-loop {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
 :root {
   --primary-color: #2d8cf0;
   --primary-hover-color: #57a3f3;
@@ -19,6 +27,8 @@
   --error-hover-color: #f16643;
   --error-active-color: #eb2d00;
   --error-focus-color: rgba(237, 64, 20, 0.2);
+  --title-color: #17233d;
+  --text-color: #515a6e;
   --white: #fff;
   --black: #000;
 }
@@ -30,6 +40,8 @@
 }
 .t-icon {
   display: inline-block;
+  vertical-align: -0.05rem;
+  display: inline;
   font-family: t-icon;
   font-style: normal;
   font-weight: normal;
@@ -39,9 +51,8 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  vertical-align: -0.125em;
   text-align: center;
-  font-size: 24px;
+  color: inherit;
 }
 .t-btn {
   border: none;
@@ -59,9 +70,9 @@
   background-color: #fff;
   border: solid 1px #dcdee2;
   padding: 0 15px;
-  vertical-align: middle;
   transition: 0.2s;
   box-sizing: border-box;
+  vertical-align: middle;
 }
 .t-btn:focus {
   box-shadow: 0 0 0 2px var(--primary-focus-color);
@@ -73,6 +84,20 @@
 .t-btn:active {
   color: var(--primary-active-color);
   border-color: var(--primary-active-color);
+}
+.t-btn:disabled {
+  color: #c5c8ce !important;
+  cursor: default;
+  background-color: #f7f7f7 !important;
+  border-color: #c5c8ce !important;
+}
+.t-btn:disabled:hover {
+  background-color: #f7f7f7 !important;
+  color: #c5c8ce !important;
+  border-color: #c5c8ce !important;
+}
+.t-btn:disabled:active {
+  border-color: #c5c8ce !important;
 }
 .t-btn-primary {
   background-color: var(--primary-color);
@@ -170,6 +195,7 @@
 .t-btn-large {
   height: 40px;
   min-width: 40px;
+  font-size: 16px;
 }
 .t-btn-full {
   background: none;
@@ -310,25 +336,30 @@
 .t-btn-square {
   border-radius: 0px;
 }
-.t-btn-disabled {
-  color: #c5c8ce;
-  cursor: default;
-  background-color: #f7f7f7;
-  border-color: #c5c8ce;
-}
-.t-btn-disabled:hover {
-  background-color: #f7f7f7;
-  color: #c5c8ce;
-  border-color: #c5c8ce;
-}
-.t-btn-disabled:active {
-  border-color: #c5c8ce;
-}
 .t-btn-focus-disabled:focus {
   box-shadow: none;
 }
 .t-btn-long {
   width: 100%;
+}
+.t-btn-icon i {
+  padding-right: 4px;
+}
+.t-btn-icon-only {
+  padding: 0;
+  min-width: 32px;
+}
+.t-btn-icon-only.t-btn-large {
+  min-width: 40px;
+}
+.t-btn-icon-only.t-btn-small {
+  min-width: 24px;
+}
+.t-btn-loading {
+  opacity: 0.7;
+}
+.t-btn-loading > .t-icon {
+  animation: ani-load-loop 1s linear infinite;
 }
 .t-btn-group {
   display: inline-block;

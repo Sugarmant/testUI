@@ -39,32 +39,19 @@ export default defineComponent({
             },
             default:false
         },
-        nativeType:{
-            type:String
-        },
-        focus:{
-            validator(value:boolean){
-                return oneOf(value,[true,false])
-            }
-        },
-        long:{
-            validator(value:boolean){
-                return oneOf(value,[true,false,''])
-            }
-        },
-        icon:{
-            type:String
-        }
+        nativeType:String,
+        focus:Boolean,
+        long:Boolean || String,
+        icon:String,
+        loading:Boolean || String
     },
     render () {
         const handleClickLink = e=>{
+            if(this.loading) return
             this.$emit('click',e)
         }
-
         const slots = this.$slots.default && this.$slots.default()
-        console.log(this)
-        const icc = this.icon?(<Icon size="small" icon={this.icon}></Icon>):''
-
+        const icc = this.loading?<Icon icon="&#xe797" />:(this.icon?<Icon icon={this.icon} />:'')
         return (
             <button 
                 class={[
@@ -73,18 +60,18 @@ export default defineComponent({
                     this.size!='default'?`${prefixCls}-${this.size}`:'',
                     this.transparent!='default'?`${prefixCls}-${this.transparent}`:'',
                     this.shape!='default'?`${prefixCls}-${this.shape}`:'',
-                    this.disabled || this.disabled === ''?`${prefixCls}-disabled`:'',
                     this.focus===false?`${prefixCls}-focus-disabled`:'',
                     this.long || this.long===''?`${prefixCls}-long`:'',
                     icc && slots?`${prefixCls}-icon`:'',
-                    icc && !slots?`${prefixCls}-icon-only`:''
+                    icc && !slots?`${prefixCls}-icon-only`:'',
+                    this.loading || this.loading===''?`${prefixCls}-loading`:''
                 ]} 
                 disabled={this.disabled || this.disabled === ''} 
                 type={this.nativeType?this.nativeType:''}
                 onClick={handleClickLink}
             >
                 {icc?icc:null}
-                <span>{slots && slots.length?slots:null}</span>
+                {slots && slots.length?<span>{slots}</span>:null}
             </button>
         )
     }

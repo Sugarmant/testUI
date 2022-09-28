@@ -1,10 +1,14 @@
 @btn-prefix-cls: ~"@{css-prefix}btn";
 
 .@{btn-prefix-cls}{
-    &{border:none;display:inline-block;margin:0;padding:0;cursor:pointer;text-align:center;font-weight:400;white-space:nowrap;font-size:14px;height:32px;outline:none;border-radius:4px;background-color:#fff;border:solid 1px #dcdee2;padding:0 15px;vertical-align:middle;transition:.2s;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;}
+    &{border:none;display:inline-block;margin:0;padding:0;cursor:pointer;text-align:center;font-weight:400;white-space:nowrap;font-size:14px;height:32px;outline:none;border-radius:4px;background-color:#fff;border:solid 1px #dcdee2;padding:0 15px;vertical-align:middle;transition:.2s;box-sizing:border-box;vertical-align:middle;}
     &:focus{box-shadow:0 0 0 2px var(--primary-focus-color);}
     &:hover{color:var(--primary-hover-color);border-color:var(--primary-hover-color)}
     &:active{color:var(--primary-active-color);border-color:var(--primary-active-color)}
+    &:disabled{color:#c5c8ce!important;cursor:default;background-color:#f7f7f7!important;border-color:#c5c8ce!important;
+        &:hover{background-color:#f7f7f7!important;color:#c5c8ce!important;border-color:#c5c8ce!important}
+        &:active{border-color:#c5c8ce!important}
+    }
 
     &-primary{background-color:var(--primary-color);color:var(--white);border-color:var(--primary-color);
         &:hover{background-color:var(--primary-hover-color);color:var(--white);border-color:var(--primary-hover-color)}
@@ -36,7 +40,7 @@
     }
 
     &-small{height:24px;min-width:24px;padding:0 7px;}
-    &-large{height:40px;min-width:40px}
+    &-large{height:40px;min-width:40px;font-size:16px}
 
     &-full{background:none;
         &.@{btn-prefix-cls}-primary{color:var(--primary-color);
@@ -86,20 +90,20 @@
 
     &-circle{border-radius:20px;}
     &-square{border-radius:0px;}
-    &-disabled{color:#c5c8ce;cursor:default;background-color:#f7f7f7;border-color:#c5c8ce;
-        &:hover{background-color:#f7f7f7;color:#c5c8ce;border-color:#c5c8ce}
-        &:active{border-color:#c5c8ce}
-    }
+    
     &-focus-disabled{
         &:focus{box-shadow:none}
     }
     &-long{width:100%}
     &-icon{
-        span{padding-left:5px;}
+        span{padding-left:4px;}
     }
     &-icon-only{padding:0;min-width:32px;
         &.@{btn-prefix-cls}-large{min-width:40px}
         &.@{btn-prefix-cls}-small{min-width:24px}
+    }
+    &-loading{opacity:.7;
+        &>.@{css-prefix}icon{animation:ani-load-loop 1s linear infinite;}
     }
 }
 
