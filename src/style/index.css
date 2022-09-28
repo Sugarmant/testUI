@@ -1,0 +1,346 @@
+:root {
+  --primary-color: #2d8cf0;
+  --primary-hover-color: #57a3f3;
+  --primary-active-color: #1881ef;
+  --primary-focus-color: rgba(45, 140, 240, 0.2);
+  --info-color: #2db7f5;
+  --info-hover-color: #57c5f7;
+  --info-active-color: #18b0f4;
+  --info-focus-color: rgba(45, 183, 245, 0.2);
+  --success-color: #19be6b;
+  --success-hover-color: #47cb89;
+  --success-active-color: #02b85c;
+  --success-focus-color: rgba(25, 190, 107, 0.2);
+  --warning-color: #ff9900;
+  --warning-hover-color: #ffad33;
+  --warning-active-color: #ff8f00;
+  --warning-focus-color: rgba(255, 153, 0, 0.2);
+  --error-color: #ed4014;
+  --error-hover-color: #f16643;
+  --error-active-color: #eb2d00;
+  --error-focus-color: rgba(237, 64, 20, 0.2);
+  --white: #fff;
+  --black: #000;
+}
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: t-icon;
+  /* Project id 3677228 */
+  src: url('//at.alicdn.com/t/c/font_3677228_i1djo19xlu.woff2?t=1664334986738') format('woff2'), url('//at.alicdn.com/t/c/font_3677228_i1djo19xlu.woff?t=1664334986738') format('woff'), url('//at.alicdn.com/t/c/font_3677228_i1djo19xlu.ttf?t=1664334986738') format('truetype');
+}
+.t-icon {
+  display: inline-block;
+  font-family: t-icon;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: -0.125em;
+  text-align: center;
+  font-size: 24px;
+}
+.t-btn {
+  border: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 400;
+  white-space: nowrap;
+  font-size: 14px;
+  height: 32px;
+  outline: none;
+  border-radius: 4px;
+  background-color: #fff;
+  border: solid 1px #dcdee2;
+  padding: 0 15px;
+  vertical-align: middle;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+.t-btn:focus {
+  box-shadow: 0 0 0 2px var(--primary-focus-color);
+}
+.t-btn:hover {
+  color: var(--primary-hover-color);
+  border-color: var(--primary-hover-color);
+}
+.t-btn:active {
+  color: var(--primary-active-color);
+  border-color: var(--primary-active-color);
+}
+.t-btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+.t-btn-primary:hover {
+  background-color: var(--primary-hover-color);
+  color: var(--white);
+  border-color: var(--primary-hover-color);
+}
+.t-btn-primary:active {
+  background-color: var(--primary-active-color);
+}
+.t-btn-dashed {
+  border-style: dashed;
+}
+.t-btn-dashed:hover {
+  color: var(--primary-hover-color);
+  border-color: var(--primary-hover-color);
+}
+.t-btn-dashed:active {
+  color: var(--primary-active-color);
+  border-color: var(--primary-active-color);
+}
+.t-btn-info {
+  background-color: var(--info-color);
+  color: var(--white);
+  border-color: var(--info-color);
+}
+.t-btn-info:hover {
+  background-color: var(--info-hover-color);
+  color: var(--white);
+  border-color: var(--info-hover-color);
+}
+.t-btn-info:focus {
+  box-shadow: 0 0 0 2px var(--info-focus-color);
+}
+.t-btn-info:active {
+  background-color: var(--info-active-color);
+}
+.t-btn-success {
+  background-color: var(--success-color);
+  color: var(--white);
+  border-color: var(--success-color);
+}
+.t-btn-success:hover {
+  background-color: var(--success-hover-color);
+  color: var(--white);
+  border-color: var(--success-hover-color);
+}
+.t-btn-success:focus {
+  box-shadow: 0 0 0 2px var(--success-focus-color);
+}
+.t-btn-success:active {
+  background-color: var(--success-active-color);
+}
+.t-btn-warning {
+  background-color: var(--warning-color);
+  color: var(--white);
+  border-color: var(--warning-color);
+}
+.t-btn-warning:hover {
+  background-color: var(--warning-hover-color);
+  color: var(--white);
+  border-color: var(--warning-hover-color);
+}
+.t-btn-warning:focus {
+  box-shadow: 0 0 0 2px var(--warning-focus-color);
+}
+.t-btn-warning:active {
+  background-color: var(--warning-active-color);
+}
+.t-btn-error {
+  background-color: var(--error-color);
+  color: var(--white);
+  border-color: var(--error-color);
+}
+.t-btn-error:hover {
+  background-color: var(--error-hover-color);
+  color: var(--white);
+  border-color: var(--error-hover-color);
+}
+.t-btn-error:focus {
+  box-shadow: 0 0 0 2px var(--error-focus-color);
+}
+.t-btn-error:active {
+  background-color: var(--error-active-color);
+}
+.t-btn-small {
+  height: 24px;
+  min-width: 24px;
+  padding: 0 7px;
+}
+.t-btn-large {
+  height: 40px;
+  min-width: 40px;
+}
+.t-btn-full {
+  background: none;
+}
+.t-btn-full.t-btn-primary {
+  color: var(--primary-color);
+}
+.t-btn-full.t-btn-primary:hover {
+  background: none;
+  color: var(--primary-hover-color);
+  border-color: var(--primary-hover-color);
+}
+.t-btn-full.t-btn-primary:active {
+  color: var(--primary-active-color);
+  border-color: var(--primary-active-color);
+}
+.t-btn-full.t-btn-info {
+  color: var(--info-color);
+}
+.t-btn-full.t-btn-info:hover {
+  background: none;
+  color: var(--info-hover-color);
+  border-color: var(--info-hover-color);
+}
+.t-btn-full.t-btn-info:active {
+  color: var(--info-active-color);
+  border-color: var(--info-active-color);
+}
+.t-btn-full.t-btn-success {
+  color: var(--success-color);
+}
+.t-btn-full.t-btn-success:hover {
+  background: none;
+  color: var(--success-hover-color);
+  border-color: var(--success-hover-color);
+}
+.t-btn-full.t-btn-success:active {
+  color: var(--success-active-color);
+  border-color: var(--success-active-color);
+}
+.t-btn-full.t-btn-warning {
+  color: var(--warning-color);
+}
+.t-btn-full.t-btn-warning:hover {
+  background: none;
+  color: var(--warning-hover-color);
+  border-color: var(--warning-hover-color);
+}
+.t-btn-full.t-btn-warning:active {
+  color: var(--warning-active-color);
+  border-color: var(--warning-active-color);
+}
+.t-btn-full.t-btn-error {
+  color: var(--error-color);
+}
+.t-btn-full.t-btn-error:hover {
+  background: none;
+  color: var(--error-hover-color);
+  border-color: var(--error-hover-color);
+}
+.t-btn-full.t-btn-error:active {
+  color: var(--error-active-color);
+  border-color: var(--error-active-color);
+}
+.t-btn-half.t-btn-primary {
+  color: var(--primary-color);
+  background: rgba(45, 140, 240, 0.1);
+  border-color: rgba(45, 140, 240, 0.5);
+}
+.t-btn-half.t-btn-primary:hover {
+  background: var(--primary-hover-color);
+  color: var(--white);
+  border-color: var(--primary-hover-color);
+}
+.t-btn-half.t-btn-primary:active {
+  background-color: var(--primary-active-color);
+  border-color: var(--primary-active-color);
+}
+.t-btn-half.t-btn-info {
+  color: var(--info-color);
+  background: rgba(45, 140, 240, 0.1);
+  border-color: rgba(45, 140, 240, 0.5);
+}
+.t-btn-half.t-btn-info:hover {
+  background: var(--info-hover-color);
+  color: var(--white);
+  border-color: var(--info-hover-color);
+}
+.t-btn-half.t-btn-info:active {
+  background-color: var(--info-active-color);
+  border-color: var(--info-active-color);
+}
+.t-btn-half.t-btn-success {
+  color: var(--success-color);
+  background: rgba(25, 190, 107, 0.1);
+  border-color: rgba(25, 190, 107, 0.5);
+}
+.t-btn-half.t-btn-success:hover {
+  background: var(--success-hover-color);
+  color: var(--white);
+  border-color: var(--success-hover-color);
+}
+.t-btn-half.t-btn-success:active {
+  background-color: var(--success-active-color);
+  border-color: var(--success-active-color);
+}
+.t-btn-half.t-btn-warning {
+  color: var(--warning-color);
+  background: rgba(255, 153, 0, 0.1);
+  border-color: rgba(255, 153, 0, 0.5);
+}
+.t-btn-half.t-btn-warning:hover {
+  background: var(--warning-hover-color);
+  color: var(--white);
+  border-color: var(--warning-hover-color);
+}
+.t-btn-half.t-btn-warning:active {
+  background-color: var(--warning-active-color);
+  border-color: var(--warning-active-color);
+}
+.t-btn-half.t-btn-error {
+  color: var(--error-color);
+  background: rgba(237, 64, 20, 0.1);
+  border-color: rgba(237, 64, 20, 0.5);
+}
+.t-btn-half.t-btn-error:hover {
+  background: var(--error-hover-color);
+  color: var(--white);
+  border-color: var(--error-hover-color);
+}
+.t-btn-half.t-btn-error:active {
+  background-color: var(--error-active-color);
+  border-color: var(--error-active-color);
+}
+.t-btn-circle {
+  border-radius: 20px;
+}
+.t-btn-square {
+  border-radius: 0px;
+}
+.t-btn-disabled {
+  color: #c5c8ce;
+  cursor: default;
+  background-color: #f7f7f7;
+  border-color: #c5c8ce;
+}
+.t-btn-disabled:hover {
+  background-color: #f7f7f7;
+  color: #c5c8ce;
+  border-color: #c5c8ce;
+}
+.t-btn-disabled:active {
+  border-color: #c5c8ce;
+}
+.t-btn-focus-disabled:focus {
+  box-shadow: none;
+}
+.t-btn-long {
+  width: 100%;
+}
+.t-btn-group {
+  display: inline-block;
+}
+.t-btn-group .t-btn:first-of-type {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.t-btn-group .t-btn {
+  border-radius: 0;
+}
+.t-btn-group .t-btn:last-of-type {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}

@@ -6,6 +6,11 @@
     </ButtonGroup>
     &nbsp;
     &nbsp;
+    <Icon size="small" icon="&#xe7c3;" />
+    <Icon size="default" icon="&#xe7c3;" />
+    <Icon size="large" icon="&#xe7c3;" />
+    <Icon size="default" icon="&#xe7c3;">啊收到了卡萨丁</Icon>
+    
     <ButtonGroup>
         <Button @click="changeTransparent('default')">默认</Button>
         <Button @click="changeTransparent('full')">全透明</Button>
@@ -40,6 +45,12 @@
     <br/>
     
     <!-- <ButtonGroup> -->
+        <Button icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="primary" />
+        <Button icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="error">文字</Button>
+
+        <Button icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" />
+        <Button icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size">文字</Button>
+
         <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size">Default</Button>
         <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="primary">Primary</Button>
         <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="dashed">Dashed</Button>

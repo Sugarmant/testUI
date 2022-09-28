@@ -2,6 +2,7 @@ import {defineComponent,h} from 'vue'
 
 const prefixCls = 't-btn';
 
+import Icon from '../icon/index'
 import {oneOf} from '../../utils/nurse'
 
 export default defineComponent({
@@ -50,6 +51,9 @@ export default defineComponent({
             validator(value:boolean){
                 return oneOf(value,[true,false,''])
             }
+        },
+        icon:{
+            type:String
         }
     },
     render () {
@@ -58,6 +62,8 @@ export default defineComponent({
         }
 
         const slots = this.$slots.default && this.$slots.default()
+        console.log(this)
+        const icc = this.icon?(<Icon size="small" icon={this.icon}></Icon>):''
 
         return (
             <button 
@@ -69,14 +75,16 @@ export default defineComponent({
                     this.shape!='default'?`${prefixCls}-${this.shape}`:'',
                     this.disabled || this.disabled === ''?`${prefixCls}-disabled`:'',
                     this.focus===false?`${prefixCls}-focus-disabled`:'',
-                    this.long || this.long===''?`${prefixCls}-long`:''
+                    this.long || this.long===''?`${prefixCls}-long`:'',
+                    icc && slots?`${prefixCls}-icon`:'',
+                    icc && !slots?`${prefixCls}-icon-only`:''
                 ]} 
                 disabled={this.disabled || this.disabled === ''} 
                 type={this.nativeType?this.nativeType:''}
                 onClick={handleClickLink}
             >
-
-                {slots && slots.length?slots:null}
+                {icc?icc:null}
+                <span>{slots && slots.length?slots:null}</span>
             </button>
         )
     }

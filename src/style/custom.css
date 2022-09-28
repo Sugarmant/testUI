@@ -19,6 +19,8 @@
   --error-hover-color: #f16643;
   --error-active-color: #eb2d00;
   --error-focus-color: rgba(237, 64, 20, 0.2);
+  --title-color: #17233d;
+  --text-color: #515a6e;
   --white: #fff;
   --black: #000;
 }

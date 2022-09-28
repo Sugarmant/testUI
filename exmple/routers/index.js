@@ -11,6 +11,7 @@ const router = createRouter({
         {path:'/steps',component:()=>import('./steps.vue')},
         {path:'/progress',component:()=>import('./progress.vue')},
         {path:'/select',component:()=>import('./select.vue')},
+        {path:'/icon',component:()=>import('./icon.vue')},
 
     ]
 })
