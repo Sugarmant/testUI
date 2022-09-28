@@ -51,7 +51,7 @@ export default defineComponent({
             this.$emit('click',e)
         }
         const slots = this.$slots.default && this.$slots.default()
-        const icc = this.loading?<Icon icon="&#xe797" />:(this.icon?<Icon icon={this.icon} />:'')
+        const icc = !this.disabled && this.loading?<Icon icon="&#xe797" />:(this.icon?<Icon icon={this.icon} />:'')
         return (
             <button 
                 class={[
@@ -64,7 +64,7 @@ export default defineComponent({
                     this.long || this.long===''?`${prefixCls}-long`:'',
                     icc && slots?`${prefixCls}-icon`:'',
                     icc && !slots?`${prefixCls}-icon-only`:'',
-                    this.loading || this.loading===''?`${prefixCls}-loading`:''
+                    !this.disabled && this.loading || this.loading===''?`${prefixCls}-loading`:''
                 ]} 
                 disabled={this.disabled || this.disabled === ''} 
                 type={this.nativeType?this.nativeType:''}
