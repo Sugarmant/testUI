@@ -1,0 +1,8 @@
+@space-prefix-cls: ~"@{css-prefix}space";
+
+.@{space-prefix-cls}{display:flex;align-items:center;
+    &-wrap{flex-wrap:wrap}
+    &-col{flex-direction:column;align-items:flex-start}
+    .@{space-prefix-cls}-item{}
+    &-divider{width:1px;height:16px;background-color:var(--divider-color)}
+}

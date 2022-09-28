@@ -8,6 +8,7 @@ import { default as Steps} from './components/steps'
 import { default as Progress} from './components/steps'
 import { default as Select} from './components/steps'
 import { default as Icon} from './components/icon'
+import { default as Space} from './components/Space'
 
 export {
     Button,
@@ -19,7 +20,8 @@ export {
     Steps,
     Progress,
     Select,
-    Icon
+    Icon,
+    Space
 }
 
 
@@ -33,7 +35,8 @@ const components = [
     Steps,
     Progress,
     Select,
-    Icon
+    Icon,
+    Space
 ]
 
 export default function(vue){
