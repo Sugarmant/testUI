@@ -63,23 +63,23 @@
 
     &-half{
         &.@{btn-prefix-cls}-primary{color:var(--primary-color);background:fade(@primary-color,10%);border-color:fade(@primary-color,50%);
-            &:hover{background:var(--primary-color);color:var(--white);border-color:var(--primary-hover-color)}
+            &:hover{background:var(--primary-hover-color);color:var(--white);border-color:var(--primary-hover-color)}
             &:active{background-color:var(--primary-active-color);border-color:var(--primary-active-color)}
         }
         &.@{btn-prefix-cls}-info{color:var(--info-color);background:fade(@primary-color,10%);border-color:fade(@primary-color,50%);
-            &:hover{background:var(--info-color);color:var(--white);border-color:var(--info-hover-color)}
+            &:hover{background:var(--info-hover-color);color:var(--white);border-color:var(--info-hover-color)}
             &:active{background-color:var(--info-active-color);border-color:var(--info-active-color)}
         }
         &.@{btn-prefix-cls}-success{color:var(--success-color);background:fade(@success-color,10%);border-color:fade(@success-color,50%);
-            &:hover{background:var(--success-color);color:var(--white);border-color:var(--success-hover-color)}
+            &:hover{background:var(--success-hover-color);color:var(--white);border-color:var(--success-hover-color)}
             &:active{background-color:var(--success-active-color);border-color:var(--success-active-color)}
         }
         &.@{btn-prefix-cls}-warning{color:var(--warning-color);background:fade(@warning-color,10%);border-color:fade(@warning-color,50%);
-            &:hover{background:var(--warning-color);color:var(--white);border-color:var(--warning-hover-color)}
+            &:hover{background:var(--warning-hover-color);color:var(--white);border-color:var(--warning-hover-color)}
             &:active{background-color:var(--warning-active-color);border-color:var(--warning-active-color)}
         }
         &.@{btn-prefix-cls}-error{color:var(--error-color);background:fade(@error-color,10%);border-color:fade(@error-color,50%);
-            &:hover{background:var(--error-color);color:var(--white);border-color:var(--error-hover-color)}
+            &:hover{background:var(--error-hover-color);color:var(--white);border-color:var(--error-hover-color)}
             &:active{background-color:var(--error-active-color);border-color:var(--error-active-color)}
         }
     }
@@ -90,6 +90,10 @@
         &:hover{background-color:#f7f7f7;color:#c5c8ce;border-color:#c5c8ce}
         &:active{border-color:#c5c8ce}
     }
+    &-focus-disabled{
+        &:focus{box-shadow:none}
+    }
+    &-long{width:100%}
 }
 
 

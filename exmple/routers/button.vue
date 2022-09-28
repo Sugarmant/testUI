@@ -24,17 +24,29 @@
         <Button @click="changeDisabled(false)">取消禁用</Button>
         <Button @click="changeDisabled(true)">禁用</Button>
     </ButtonGroup>
+    &nbsp;
+    &nbsp;
+    <ButtonGroup>
+        <Button @click="changeFocus(true)">默认</Button>
+        <Button @click="changeFocus(false)">禁用focus</Button>
+    </ButtonGroup>
+    &nbsp;
+    &nbsp;
+    <ButtonGroup>
+        <Button @click="changeLong(false)">默认</Button>
+        <Button @click="changeLong(true)">长按钮</Button>
+    </ButtonGroup>
     <br/>
     <br/>
     
     <!-- <ButtonGroup> -->
-        <Button :disabled="disabled" :shape="shape" :transparent="transparent" :size="size">Default</Button>
-        <Button :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="primary">Primary</Button>
-        <Button :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="dashed">Dashed</Button>
-        <Button :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="info">Info</Button>
-        <Button :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="success">Success</Button>
-        <Button :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="warning">Warning</Button>
-        <Button :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="error">Error</Button>
+        <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size">Default</Button>
+        <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="primary">Primary</Button>
+        <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="dashed">Dashed</Button>
+        <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="info">Info</Button>
+        <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="success">Success</Button>
+        <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="warning">Warning</Button>
+        <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="error">Error</Button>
     <!-- </ButtonGroup> -->
         <br/>
         <br/>
@@ -54,21 +66,29 @@ export default {
         const transparent = ref('default')
         const shape = ref('default')
         const disabled = ref(false)
+        const focus = ref(true)
+        const long = ref(false)
 
         const changeSize = e=> size.value = e
         const changeTransparent = e=> transparent.value = e
         const changeShapre = e=>shape.value = e
         const changeDisabled = e=>disabled.value = e
+        const changeFocus = e=>focus.value = e
+        const changeLong = e=>long.value = e
         return {
             size,
             transparent,
             shape,
             disabled,
+            focus,
+            long,
 
             changeSize,
             changeTransparent,
             changeShapre,
-            changeDisabled
+            changeDisabled,
+            changeFocus,
+            changeLong
         }
     },
 }

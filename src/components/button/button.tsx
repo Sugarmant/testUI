@@ -40,13 +40,23 @@ export default defineComponent({
         },
         nativeType:{
             type:String
+        },
+        focus:{
+            validator(value:boolean){
+                return oneOf(value,[true,false])
+            }
+        },
+        long:{
+            validator(value:boolean){
+                return oneOf(value,[true,false,''])
+            }
         }
     },
     render () {
         const handleClickLink = e=>{
             this.$emit('click',e)
         }
-        
+
         const slots = this.$slots.default && this.$slots.default()
 
         return (
@@ -57,7 +67,9 @@ export default defineComponent({
                     this.size!='default'?`${prefixCls}-${this.size}`:'',
                     this.transparent!='default'?`${prefixCls}-${this.transparent}`:'',
                     this.shape!='default'?`${prefixCls}-${this.shape}`:'',
-                    this.disabled || this.disabled === ''?`${prefixCls}-disabled`:''
+                    this.disabled || this.disabled === ''?`${prefixCls}-disabled`:'',
+                    this.focus===false?`${prefixCls}-focus-disabled`:'',
+                    this.long || this.long===''?`${prefixCls}-long`:''
                 ]} 
                 disabled={this.disabled || this.disabled === ''} 
                 type={this.nativeType?this.nativeType:''}
