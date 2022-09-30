@@ -9,6 +9,8 @@ import { default as Progress} from './components/steps'
 import { default as Select} from './components/steps'
 import { default as Icon} from './components/icon'
 import { default as Space} from './components/Space'
+import { default as Row} from './components/Row'
+import { default as Col} from './components/Col'
 
 export {
     Button,
@@ -21,7 +23,9 @@ export {
     Progress,
     Select,
     Icon,
-    Space
+    Space,
+    Row,
+    Col
 }
 
 
@@ -36,7 +40,9 @@ const components = [
     Progress,
     Select,
     Icon,
-    Space
+    Space,
+    Row,
+    Col
 ]
 
 export default function(vue){

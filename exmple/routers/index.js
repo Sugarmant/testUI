@@ -12,6 +12,8 @@ const router = createRouter({
         {path:'/progress',component:()=>import('./progress.vue')},
         {path:'/select',component:()=>import('./select.vue')},
         {path:'/icon',component:()=>import('./icon.vue')},
+        {path:'/row',component:()=>import('./row.vue')},
+        {path:'/col',component:()=>import('./row.vue')},
 
     ]
 })
