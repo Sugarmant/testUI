@@ -1,12 +1,21 @@
 @row-prefix-cls: ~"@{css-prefix}row";
 
-.@{row-prefix-cls}{overflow:hidden;width:100%;
-    &-inner{display:flex;flex-wrap:wrap;
+.@{row-prefix-cls}{
+    &-inner{display:flex;flex-wrap:wrap;height:100%}
+    &-justify{
         &-start{justify-content:flex-start;}
         &-end{justify-content:flex-end;}
         &-center{justify-content:center;}
         &-space-between{justify-content:space-between;}
         &-space-around{justify-content:space-around;}
+    }
+    &-align{
+        &-start{align-content:flex-start;}
+        &-end{align-content:flex-end;}
+        &-center{align-content:center;}
+        &-space-between{align-content:space-between;}
+        &-space-around{align-content:space-around;}
+        &-stretch{align-content:stretch;}
     }
     
 }

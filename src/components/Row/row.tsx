@@ -14,11 +14,17 @@ export default defineComponent({
                 return oneOf(val,['start','end','center','space-around','space-between',''])
             },
             default:''
-        }
+        },
+        align:{
+            validator(val:string){
+                return oneOf(val,['start','end','center','space-around','space-between','stretch',''])
+            },
+            default:''
+        },
+        nativeClass:String
     },
     render () {
         const slots = this.$slots.default && this.$slots.default()
-        console.log(this.space)
         for(const slot of slots){
             if(slot.type.name === 'Col' && this.space>0) {
                 // if(!slot.props) slot.props = {}
@@ -28,15 +34,19 @@ export default defineComponent({
         
         return (
             <div 
-                class={[ prefixCls ]}
+                class={[ 
+                    prefixCls,
+                    this.nativeClass
+                ]}
             >
                 <div 
                     class={[
                         `${prefixCls}-inner`,
-                        this.justify!==''?`${prefixCls}-inner-${this.justify}`:''
+                        this.justify!==''?`${prefixCls}-justify-${this.justify}`:'',
+                        this.align!==''?`${prefixCls}-align-${this.align}`:''
                     ]}
                     style={[
-                        this.space>0?`margin-left:-${this.space}px;margin-right:-${this.space}px;`:'',
+                        this.space>0?`margin-left:-${this.space/2}px;margin-right:-${this.space/2}px;`:'',
                     ]}
                 >{slots}</div>
             </div>
