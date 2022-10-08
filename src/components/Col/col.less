@@ -1,1 +1,14 @@
 @col-prefix-cls: ~"@{css-prefix}col";
+
+.loop(@counter) when (@counter > 0) {
+    &.@{col-prefix-cls}-span-@{counter}{flex:0 0 percentage((@counter/24))}
+    &.@{col-prefix-cls}-offset-@{counter}{margin-left:percentage((@counter/24))}
+    .loop(@counter - 1);
+}
+
+
+.@{col-prefix-cls}{box-sizing:border-box;display:block;
+    .loop(24);
+    &.@{col-prefix-cls}-span--1{flex:1}
+}
+

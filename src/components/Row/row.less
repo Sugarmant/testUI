@@ -1,5 +1,12 @@
 @row-prefix-cls: ~"@{css-prefix}row";
 
-.@{row-prefix-cls}{display:flex;
-
+.@{row-prefix-cls}{overflow:hidden;width:100%;
+    &-inner{display:flex;flex-wrap:wrap;
+        &-start{justify-content:flex-start;}
+        &-end{justify-content:flex-end;}
+        &-center{justify-content:center;}
+        &-space-between{justify-content:space-between;}
+        &-space-around{justify-content:space-around;}
+    }
+    
 }
