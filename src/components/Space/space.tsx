@@ -62,7 +62,6 @@ export default defineComponent({
         const align = spaceAlign[this.align] || ''
 
         const symbol =  this.$slots.split && this.$slots.split()[0]
-        console.log(symbol)
         return (
             <div class={[
                     prefixCls,

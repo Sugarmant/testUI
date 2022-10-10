@@ -5,8 +5,6 @@
 </template>
 
 <script>
-   
-    // import {TButton} from '../src/index'
     
     export default {
         components:{

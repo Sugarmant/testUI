@@ -1,0 +1,20 @@
+@radio-prefix-cls: ~"@{css-prefix}radio";
+@radio-group-prefix-cls: ~"@{css-prefix}radio-group";
+
+.@{radio-prefix-cls}{display:inline-flex;align-items:center;cursor:pointer;
+    &-inner{width:16.5px;height:16.5px;position:relative;display:inline-block;margin-right:4px;
+        input{margin:0;opacity:0;position:absolute;left:0;top:0;width:16px;height:16px;cursor:pointer;}
+    }
+    &-wrapper{width:16.5px;height:16.5px;display:flex;align-items:center;justify-content:center;border:solid 1px #dcdee2;border-radius:10px;box-sizing:border-box;
+        &::after{width:10px;height:10px;border-radius:5px;content:'';display:block;background-color:#2d8cf0;transform:scale(0);transition:.1s}
+    }
+    &-checked{
+        .@{radio-prefix-cls}-wrapper{
+            &::after{transform:scale(1)}
+        }
+    }
+}
+
+.@{radio-group-prefix-cls}{display:inline-flex;
+    &-item{margin-right:8px}
+}

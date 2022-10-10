@@ -46,10 +46,6 @@ export default defineComponent({
             
             return this.flex
         })();
-        console.log(flex)
-        // this.flex && (this.flex.indexOf(' ')>-1 || this.flex==="auto")?this.flex:`0 0 ${this.flex}`
-        // console.log(this.flex.split(' '))
-        // console.log(this.flex,'-',this.flex && (this.flex.indexOf(' ')>-1 || this.flex==="auto" || this.flex==='none')?this.flex:`0 0 ${this.flex}`)
         return (
             <div 
                 class={[

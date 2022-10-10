@@ -11,6 +11,8 @@ import { default as Icon} from './components/icon'
 import { default as Space} from './components/Space'
 import { default as Row} from './components/Row'
 import { default as Col} from './components/Col'
+import { default as Radio} from './components/Radio'
+import { default as RadioGroup} from './components/RadioGroup'
 
 export {
     Button,
@@ -25,7 +27,9 @@ export {
     Icon,
     Space,
     Row,
-    Col
+    Col,
+    Radio,
+    RadioGroup
 }
 
 
@@ -42,7 +46,9 @@ const components = [
     Icon,
     Space,
     Row,
-    Col
+    Col,
+    Radio,
+    RadioGroup
 ]
 
 export default function(vue){

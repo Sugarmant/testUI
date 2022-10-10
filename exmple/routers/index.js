@@ -14,6 +14,7 @@ const router = createRouter({
         {path:'/icon',component:()=>import('./icon.vue')},
         {path:'/row',component:()=>import('./row.vue')},
         {path:'/col',component:()=>import('./row.vue')},
+        {path:'/radio',component:()=>import('./radio.vue')}
 
     ]
 })
