@@ -19,6 +19,24 @@
         <Radio value="v2">选项2</Radio>
         <Radio value="v3">选项3</Radio>
     </RadioGroup>
+
+    <h2>border样式</h2>
+    <RadioGroup type="border" v-model="gruopParam">
+        <Radio value="v1">选项1</Radio>
+        <Radio value="v2">选项2</Radio>
+        <Radio value="v3">选项3</Radio>
+    </RadioGroup>
+
+    <h2>vertical排列</h2>
+    <Row>
+        <Col span="3">
+            <RadioGroup type="border" v-model="gruopParam" vertical>
+                <Radio value="v1">选项1</Radio>
+                <Radio value="v2">选项2</Radio>
+                <Radio value="v3">选项3</Radio>
+            </RadioGroup>
+        </Col>
+    </Row>
 </template>
 
 

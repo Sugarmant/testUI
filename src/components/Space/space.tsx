@@ -22,12 +22,7 @@ export default defineComponent({
             type:Boolean,
             default:true
         },
-        direction:{
-            validator(value:string){
-                return oneOf(value,['row','col'])
-            },
-            default:'row'
-        },
+        vertical:Boolean,
         align:{
             validator(value:string){
                 return oneOf(value,['left','right','center'])
@@ -66,7 +61,7 @@ export default defineComponent({
             <div class={[
                     prefixCls,
                     this.wrap?`${prefixCls}-wrap`:'',
-                    this.direction && this.direction!='row'?`${prefixCls}-col`:''
+                    this.vertical?`${prefixCls}-col`:''
                 ]}
                 style={{
                     gap:`16px ${typeof size==='number'?size+'px':size}`,

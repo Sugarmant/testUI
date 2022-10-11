@@ -5,10 +5,11 @@ const prefix = 't-radio-group'
 export default defineComponent({
     name:'RadioGroup',
     props:{
+        vertical:Boolean,
         modelValue:Boolean,
         type:{
             validator(val){
-                return oneOf(val,['default','button'])
+                return oneOf(val,['default','button','border'])
             },
             default:'default'
         }
@@ -33,10 +34,11 @@ export default defineComponent({
     render(){
         const slots = this.$slots.default && this.$slots.default()
         return (
-            <div class={[
-                prefix,
-                this.type!=='default'?`${prefix}-${this.type}`:''
-            ]}>
+            <div class={{
+                [prefix]:true,
+                [`${prefix}-${this.type}`]:this.type!=='default',
+                [`${prefix}-vertical`]:this.vertical
+            }}>
                 {slots}
             </div>
         )
