@@ -7,6 +7,12 @@ export default defineComponent({
     props:{
         vertical:Boolean,
         modelValue:Boolean,
+        size:{
+            validator(val){
+                return oneOf(val,['default','small','large'])
+            },
+            default:'default'
+        },
         type:{
             validator(val){
                 return oneOf(val,['default','button','border'])
@@ -37,7 +43,8 @@ export default defineComponent({
             <div class={{
                 [prefix]:true,
                 [`${prefix}-${this.type}`]:this.type!=='default',
-                [`${prefix}-vertical`]:this.vertical
+                [`${prefix}-vertical`]:this.vertical,
+                [`${prefix}-${this.size}`]:this.size!=='default'
             }}>
                 {slots}
             </div>

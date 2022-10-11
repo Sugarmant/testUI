@@ -1,40 +1,43 @@
 <template>
-    <h2>基础</h2>
-    <Space>
-        <Button @click="onChangeChe">改变</Button>
-        <Radio value="标签" v-model="che" />
-        <Radio value="标签" v-model="che" />
-    </Space>
-
-    <h2>RadioGroup</h2>
-    <RadioGroup v-model="gruopParam">
-        <Radio value="v1">选项1</Radio>
-        <Radio value="v2">选项2</Radio>
-        <Radio disabled value="v3">禁用项</Radio>
-    </RadioGroup>
-    
-    <h2>Button样式</h2>
-    <RadioGroup type="button" v-model="gruopParam">
-        <Radio value="v1">选项1</Radio>
-        <Radio value="v2">选项2</Radio>
-        <Radio value="v3">选项3</Radio>
-    </RadioGroup>
-
-    <h2>border样式</h2>
-    <RadioGroup type="border" v-model="gruopParam">
-        <Radio value="v1">选项1</Radio>
-        <Radio value="v2">选项2</Radio>
-        <Radio value="v3">选项3</Radio>
-    </RadioGroup>
-
-    <h2>vertical排列</h2>
     <Row>
-        <Col span="3">
-            <RadioGroup type="border" v-model="gruopParam" vertical>
-                <Radio value="v1">选项1</Radio>
-                <Radio value="v2">选项2</Radio>
-                <Radio value="v3">选项3</Radio>
+        <Col>
+            <RadioGroup :vertical="vertical" :type="type" v-model="test">
+                <Radio :disabled="disabled" value="1">选项1</Radio>
+                <Radio :disabled="disabled" value="2">选项2</Radio>
+                <Radio :disabled="disabled" value="3">选项3</Radio>
+                <Radio :disabled="disabled" value="4">
+                    <Icon icon="&#xe7f4;"></Icon>
+                    选项4
+                </Radio>
             </RadioGroup>
+        </Col>
+        <Col>
+            <Space vertical>
+                <div>
+                    <div>样式 type</div>
+                    <RadioGroup v-model="type">
+                        <Radio value="default" />
+                        <Radio value="button" />
+                        <Radio value="border" />
+                    </RadioGroup>
+                </div>
+
+                <div>
+                    <div>是否禁用 disabled</div>
+                    <RadioGroup v-model="disabled">
+                        <Radio :value="true">true</Radio>
+                        <Radio :value="false">false</Radio>
+                    </RadioGroup>
+                </div>
+                
+                <div>
+                    <div>是否竖排 vertical</div>
+                    <RadioGroup v-model="vertical">
+                        <Radio :value="true">true</Radio>
+                        <Radio :value="false">false</Radio>
+                    </RadioGroup>
+                </div>
+            </Space>
         </Col>
     </Row>
 </template>
@@ -44,18 +47,18 @@
 import { ref } from 'vue'
 export default {
     setup() {
-        const che = ref(false)
-        
-        const gruopParam = ref('v2')
-        
-        const onChangeChe = ()=>{
-            che.value = !che.value
-        }
-        return {
-            che,
-            gruopParam,
 
-            onChangeChe
+        const test = ref('1')
+
+        const type = ref('default')
+        const disabled = ref(false)
+        const vertical = ref(false)
+        return {
+            test,
+
+            type,
+            disabled,
+            vertical
         }
     }
 }

@@ -1,3 +1,4 @@
+@css-prefix:"t-";
 @radio: ~"@{css-prefix}radio";
 @radioGroup: ~"@{css-prefix}radio-group";
 
@@ -14,15 +15,14 @@
         }
     }
     &-disabled{cursor:not-allowed;
-        .t-radio-wrapper{background-color:#f3f3f3;}
-        .@{radio}-wrapper{border-color:#dcdee2;
+        .@{radio}-wrapper{border-color:#dcdee2;background-color:#f3f3f3;
             &::after{background-color:#ccc}
         }
     }
 }
 
 .btn{padding:0 15px;height:32px;border:solid 1px #ccc;
-    &:not(&-checked):hover{color:#2d8cf0}
+    &:not(&-checked):not(&-disabled):hover{color:#2d8cf0}
 }
 
 .setBorder{
@@ -33,18 +33,25 @@
     &-button{
         .@{radio}{.btn;.setBorder;margin-right:0;
             &-wrapper{display:none}
-            &-checked{border-color:#2d8cf0;background-color:#2d8cf0;color:#fff;}
+            &-checked{border-color:#2d8cf0;color:#2d8cf0;}
+            &-disabled{background-color:#f7f7f7;color:#ccc;
+                &.@{radio}-checked{background-color:#f0f0f0;border-color:#dcdee2}
+            }
+            
         }
     }
 
     &-border{
         .@{radio}{.btn;.setBorder;margin-right:0;
             &-checked{border-color:#2d8cf0;color:#2d8cf0}
+            &-disabled{background-color:#f7f7f7;color:#ccc;
+                &.@{radio}-checked{background-color:#f0f0f0;border-color:#dcdee2}
+            }
         }
     }
 
     &-vertical{display:flex;flex-direction:column;
-        .@{radio}{
+        .@{radio}{height:30px;
             &:first-child{border-top-left-radius:0px;border-bottom-left-radius:0px;}
             &:last-child{border-top-right-radius:0px;border-bottom-right-radius:0px;} 
         }  
