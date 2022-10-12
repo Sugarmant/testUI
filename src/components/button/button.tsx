@@ -1,6 +1,6 @@
 import {defineComponent,h} from 'vue'
 
-const prefixCls = 't-btn';
+const prefix = 't-btn';
 
 import Icon from '../icon/index'
 import {oneOf} from '../../utils/nurse'
@@ -41,9 +41,9 @@ export default defineComponent({
         },
         nativeType:String,
         focus:Boolean,
-        long:Boolean || String,
+        long:Boolean,
         icon:String,
-        loading:Boolean || String
+        loading:Boolean
     },
     render () {
         const handleClickLink = e=>{
@@ -54,18 +54,18 @@ export default defineComponent({
         const icc = !this.disabled && this.loading?<Icon icon="&#xe797" />:(this.icon?<Icon icon={this.icon} />:'')
         return (
             <button 
-                class={[
-                    prefixCls,
-                    this.type!='default'?`${prefixCls}-${this.type}`:'',
-                    this.size!='default'?`${prefixCls}-${this.size}`:'',
-                    this.transparent!='default'?`${prefixCls}-${this.transparent}`:'',
-                    this.shape!='default'?`${prefixCls}-${this.shape}`:'',
-                    this.focus===false?`${prefixCls}-focus-disabled`:'',
-                    this.long || this.long===''?`${prefixCls}-long`:'',
-                    icc && slots?`${prefixCls}-icon`:'',
-                    icc && !slots?`${prefixCls}-icon-only`:'',
-                    !this.disabled && this.loading || this.loading===''?`${prefixCls}-loading`:''
-                ]} 
+                class={
+                    {
+                        [prefix]:true,
+                        [`${prefix}-${this.type}`]:this.type!='default',
+                        [`${prefix}-${this.size}`]:this.size!='default',
+                        [`${prefix}-${this.type}-${this.transparent}`]:this.transparent!='default',
+                        [`${prefix}-${this.shape}`]:this.shape!='default',
+                        [`${prefix}-focus-disabled`]:!this.focus,
+                        [`${prefix}-long`]:this.long,
+                        [`${prefix}-icon-only`]:icc && !slots,
+                        [`${prefix}-loading`]:!this.disabled && this.loading
+                    }} 
                 disabled={this.disabled || this.disabled === ''} 
                 type={this.nativeType?this.nativeType:''}
                 onClick={handleClickLink}

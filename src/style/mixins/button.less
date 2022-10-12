@@ -1,0 +1,34 @@
+.btn{display:inline-block;cursor:pointer;font-weight:400;white-space:nowrap;font-size:14px;outline:none;border-radius:4px;border:solid 1px #dcdee2;transition:.2s;box-sizing:border-box;vertical-align:middle;
+    .btn-middle;
+    .btn-variant(transparent,@primary-color,@primary-color);
+    &:disabled{color:#c5c8ce;cursor:default;background-color:#f7f7f7;border-color:#c5c8ce;}
+    .@{icon-font}+span{margin-left:5px}
+}
+
+.btn-dashed{border-style:dashed}
+.btn-primary{.btn-variant(@primary-color,@white,@primary-color)}
+.btn-info{.btn-variant(@info-color,@white,@info-color)}
+.btn-success{.btn-variant(@success-color,@white,@success-color)}
+.btn-warning{.btn-variant(@warning-color,@white,@warning-color)}
+.btn-error{.btn-variant(@error-color,@white,@error-color)}
+
+.btn-middle{.btn-size(32px,14px)}
+.btn-small{.btn-size(24px,14px)}
+.btn-large{.btn-size(40px,16px)}
+
+.btn-circle{border-radius:20px}
+.btn-square{border-radius:0}
+
+.btn-focus-disabled{
+    &:focus{box-shadow:none}
+}
+
+.btn-size(@height,@fontSize){height:@height;min-width:@height;padding:0 calc(~"(@{height} - 2px) / 2");line-height:calc(~"@{height} - 2px");font-size:@fontSize}
+
+.btn-variant(@bgColor,@fontColor,@borderColor){background-color:@bgColor;color:@fontColor;border-color:@borderColor;
+    &:hover:not([disabled]){background-color:tint(@bgColor,20%);color:tint(@fontColor,20%);border-color:tint(@borderColor,20%)}
+    &:active:not([disabled]){background-color:tint(@bgColor,-10%);color:tint(@fontColor,-10%);border-color:tint(@borderColor,-10%)}
+    &:focus{box-shadow:0 0 0 2px fade(@borderColor,20%);}
+    &-full{background-color:transparent;color:@bgColor}
+    &-half{background-color:tint(@bgColor,90%);color:@bgColor}
+}

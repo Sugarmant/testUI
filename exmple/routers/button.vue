@@ -2,7 +2,13 @@
     <Row>
         <Col>
             <Space vertical>
+                <Button loading icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" />
+                <Button loading icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="dashed" />
                 <Button loading icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="primary" />
+                <Button loading icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="info" />
+                <Button loading icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="success" />
+                <Button loading icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="warning" />
+                <Button loading icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="error" />
                 <Button loading icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="info">带文字的loading</Button>
                 <Button :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="warning" >warning</Button>
                 <Button icon="&#xe7f4;" :long="long" :focus="focus" :disabled="disabled" :shape="shape" :transparent="transparent" :size="size" type="primary" />
