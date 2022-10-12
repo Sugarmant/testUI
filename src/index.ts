@@ -13,6 +13,11 @@ import { default as Row} from './components/Row'
 import { default as Col} from './components/Col'
 import { default as Radio} from './components/Radio'
 import { default as RadioGroup} from './components/RadioGroup'
+import { default as Header} from './components/Header'
+import { default as Layout} from './components/Layout'
+import { default as Menu} from './components/Menu'
+import { default as MenuGroup} from './components/MenuGroup'
+import { default as Submenu} from './components/Submenu'
 
 export {
     Button,
@@ -29,7 +34,12 @@ export {
     Row,
     Col,
     Radio,
-    RadioGroup
+    RadioGroup,
+    Header,
+    Layout,
+    Menu,
+    MenuGroup,
+    Submenu
 }
 
 
@@ -48,7 +58,12 @@ const components = [
     Row,
     Col,
     Radio,
-    RadioGroup
+    RadioGroup,
+    Header,
+    Layout,
+    Menu,
+    MenuGroup,
+    Submenu
 ]
 
 export default function(vue){

@@ -1,7 +1,7 @@
-@btn-prefix-cls: ~"@{css-prefix}btn";
-@btn-group-prefix-cls: ~"@{btn-prefix-cls}-group";
+@button: ~"@{css-prefix}btn";
+@buttonGroup: ~"@{button}-group";
 
-.@{btn-prefix-cls}{
+.@{button}{
     &{border:none;display:inline-block;margin:0;padding:0;cursor:pointer;text-align:center;font-weight:400;white-space:nowrap;font-size:14px;height:32px;outline:none;border-radius:4px;background-color:#fff;border:solid 1px #dcdee2;padding:0 15px;vertical-align:middle;transition:.2s;box-sizing:border-box;vertical-align:middle;}
     &:focus{box-shadow:0 0 0 2px var(--primary-focus-color);}
     &:hover{color:var(--primary-hover-color);border-color:var(--primary-hover-color)}
@@ -44,46 +44,46 @@
     &-large{height:40px;min-width:40px;font-size:16px}
 
     &-full{background:none;
-        &.@{btn-prefix-cls}-primary{color:var(--primary-color);
+        &.@{button}-primary{color:var(--primary-color);
             &:hover{background:none;color:var(--primary-hover-color);border-color:var(--primary-hover-color)}
             &:active{color:var(--primary-active-color);border-color:var(--primary-active-color)}
         }
-        &.@{btn-prefix-cls}-info{color:var(--info-color);
+        &.@{button}-info{color:var(--info-color);
             &:hover{background:none;color:var(--info-hover-color);border-color:var(--info-hover-color)}
             &:active{color:var(--info-active-color);border-color:var(--info-active-color)}
         }
-        &.@{btn-prefix-cls}-success{color:var(--success-color);
+        &.@{button}-success{color:var(--success-color);
             &:hover{background:none;color:var(--success-hover-color);border-color:var(--success-hover-color)}
             &:active{color:var(--success-active-color);border-color:var(--success-active-color)}
         }
-        &.@{btn-prefix-cls}-warning{color:var(--warning-color);
+        &.@{button}-warning{color:var(--warning-color);
             &:hover{background:none;color:var(--warning-hover-color);border-color:var(--warning-hover-color)}
             &:active{color:var(--warning-active-color);border-color:var(--warning-active-color)}
         }
-        &.@{btn-prefix-cls}-error{color:var(--error-color);
+        &.@{button}-error{color:var(--error-color);
             &:hover{background:none;color:var(--error-hover-color);border-color:var(--error-hover-color)}
             &:active{color:var(--error-active-color);border-color:var(--error-active-color)}
         }
     }
 
     &-half{
-        &.@{btn-prefix-cls}-primary{color:var(--primary-color);background:fade(@primary-color,10%);border-color:fade(@primary-color,50%);
+        &.@{button}-primary{color:var(--primary-color);background:fade(@primary-color,10%);border-color:fade(@primary-color,50%);
             &:hover{background:var(--primary-hover-color);color:var(--white);border-color:var(--primary-hover-color)}
             &:active{background-color:var(--primary-active-color);border-color:var(--primary-active-color)}
         }
-        &.@{btn-prefix-cls}-info{color:var(--info-color);background:fade(@primary-color,10%);border-color:fade(@primary-color,50%);
+        &.@{button}-info{color:var(--info-color);background:fade(@primary-color,10%);border-color:fade(@primary-color,50%);
             &:hover{background:var(--info-hover-color);color:var(--white);border-color:var(--info-hover-color)}
             &:active{background-color:var(--info-active-color);border-color:var(--info-active-color)}
         }
-        &.@{btn-prefix-cls}-success{color:var(--success-color);background:fade(@success-color,10%);border-color:fade(@success-color,50%);
+        &.@{button}-success{color:var(--success-color);background:fade(@success-color,10%);border-color:fade(@success-color,50%);
             &:hover{background:var(--success-hover-color);color:var(--white);border-color:var(--success-hover-color)}
             &:active{background-color:var(--success-active-color);border-color:var(--success-active-color)}
         }
-        &.@{btn-prefix-cls}-warning{color:var(--warning-color);background:fade(@warning-color,10%);border-color:fade(@warning-color,50%);
+        &.@{button}-warning{color:var(--warning-color);background:fade(@warning-color,10%);border-color:fade(@warning-color,50%);
             &:hover{background:var(--warning-hover-color);color:var(--white);border-color:var(--warning-hover-color)}
             &:active{background-color:var(--warning-active-color);border-color:var(--warning-active-color)}
         }
-        &.@{btn-prefix-cls}-error{color:var(--error-color);background:fade(@error-color,10%);border-color:fade(@error-color,50%);
+        &.@{button}-error{color:var(--error-color);background:fade(@error-color,10%);border-color:fade(@error-color,50%);
             &:hover{background:var(--error-hover-color);color:var(--white);border-color:var(--error-hover-color)}
             &:active{background-color:var(--error-active-color);border-color:var(--error-active-color)}
         }
@@ -100,28 +100,28 @@
         span{padding-left:4px;}
     }
     &-icon-only{padding:0;min-width:32px;
-        &.@{btn-prefix-cls}-large{min-width:40px}
-        &.@{btn-prefix-cls}-small{min-width:24px}
+        &.@{button}-large{min-width:40px}
+        &.@{button}-small{min-width:24px}
     }
     &-loading{opacity:.7;
-        &>.@{css-prefix}icon{animation:ani-load-loop 1s linear infinite;}
+        &>.@{icon-font}{animation:ani-load-loop 1s linear infinite;}
     }
 }
 
 
-.@{btn-group-prefix-cls}{display:inline-block;
-    .@{btn-prefix-cls}{border-radius:0;
+.@{buttonGroup}{display:inline-block;
+    .@{button}{border-radius:0;
         &:first-of-type{border-top-left-radius:4px;border-bottom-left-radius:4px}
         &:last-of-type{border-top-right-radius:4px;border-bottom-right-radius:4px}    
     }
     &-circle{
-        .@{btn-prefix-cls}{
+        .@{button}{
             &:first-of-type{border-top-left-radius:20px;border-bottom-left-radius:20px}
             &:last-of-type{border-top-right-radius:20px;border-bottom-right-radius:20px}    
         }
     }
     &-square{
-        .@{btn-prefix-cls}{
+        .@{button}{
             &:first-of-type,&:last-of-type{border-radius:0}
         }
     }
