@@ -10,7 +10,8 @@ export default defineComponent({
     emits:['update:modelValue','select'],
     provide(){
         return {
-            menuGroup:this
+            menuGroup:this,
+            vertical:this.vertical
         }
     },
     render () {

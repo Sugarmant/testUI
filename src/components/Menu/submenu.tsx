@@ -11,10 +11,13 @@ export default defineComponent({
         }
     },
     render () {
+        const title = this.$slots.title && this.$slots.title()
+        const slots = this.$slots.default && this.$slots.default()
         return (
-            <button>
-            asdsa
-            </button>
+            <div>
+                {title}
+                {slots}
+            </div>
         )
     }
 })
