@@ -1,8 +1,8 @@
 <template>
     <Layout>
         <Header class="header">
-            <MenuGroup>
-                <Menu name="1">菜单一号</Menu>
+            <MenuGroup @select="onSelect" v-model="currentName">
+                <Menu name="1"><Icon icon="&#xe7ec;"/>菜单一号</Menu>
                 <Menu name="2">菜单二号</Menu>
                 <Submenu name="3">
                     <template #title>
@@ -16,26 +16,44 @@
                 </Submenu>
             </MenuGroup>
         </Header>
-        <router-view></router-view>
+        <Layout>
+            <Sider>
+                <MenuGroup>
+                    <Menu name="1"><Icon icon="&#xe7ec;"/>侧边一号</Menu>
+                    <Menu name="2">侧边二号</Menu>
+                </MenuGroup>
+            </Sider>
+            <Layout>
+                <Main>
+                    <router-view></router-view>
+                </Main>
+            </Layout>
+        </Layout>
+        
     </Layout>
 </template>
 
 <script>
-    
+    import {ref} from 'vue'
     export default {
         components:{
             // TButton
         },
         setup(){
-           
+            const currentName = ref('1')
+            const onSelect = val=>{
+                console.log(val)
+            }
+
             return {
-               
+               currentName,
+               onSelect
             }
         }
     }
 </script>
 
 
-<style scoped lang="less">
-    
+<style lang="less">
+    body{margin:0}
 </style>

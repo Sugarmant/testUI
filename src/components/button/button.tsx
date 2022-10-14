@@ -1,6 +1,7 @@
 import {defineComponent,h} from 'vue'
 
 const prefix = 't-btn';
+const ani_loop = 't-ani-loop'
 
 import Icon from '../icon/index'
 import {oneOf} from '../../utils/nurse'
@@ -51,7 +52,7 @@ export default defineComponent({
             this.$emit('click',e)
         }
         const slots = this.$slots.default && this.$slots.default()
-        const icc = !this.disabled && this.loading?<Icon icon="&#xe797" />:(this.icon?<Icon icon={this.icon} />:'')
+        const icc = !this.disabled && this.loading?<Icon class={{[ani_loop]:!this.disabled && this.loading}} icon="&#xe797" />:(this.icon?<Icon icon={this.icon} />:'')
         return (
             <button 
                 class={

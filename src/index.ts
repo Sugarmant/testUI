@@ -18,6 +18,8 @@ import { default as Layout} from './components/Layout'
 import { default as Menu} from './components/Menu'
 import { default as MenuGroup} from './components/MenuGroup'
 import { default as Submenu} from './components/Submenu'
+import { default as Main} from './components/Main'
+import { default as Sider} from './components/Sider'
 
 export {
     Button,
@@ -39,7 +41,9 @@ export {
     Layout,
     Menu,
     MenuGroup,
-    Submenu
+    Submenu,
+    Main,
+    Sider
 }
 
 
@@ -63,7 +67,9 @@ const components = [
     Layout,
     Menu,
     MenuGroup,
-    Submenu
+    Submenu,
+    Main,
+    Sider
 ]
 
 export default function(vue){
