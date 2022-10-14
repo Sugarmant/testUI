@@ -18,7 +18,7 @@
         </Header>
         <Layout>
             <Sider>
-                <MenuGroup>
+                <MenuGroup vertical>
                     <Menu name="1"><Icon icon="&#xe7ec;"/>侧边一号</Menu>
                     <Menu name="2">侧边二号</Menu>
                 </MenuGroup>

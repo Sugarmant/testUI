@@ -4,7 +4,8 @@ const prefix = "t-menu-group"
 export default defineComponent({
     name: 'MenuGroup',
     props: {
-        modelValue:String
+        modelValue:String,
+        vertical:Boolean
     },
     emits:['update:modelValue','select'],
     provide(){
@@ -17,7 +18,8 @@ export default defineComponent({
         
         return (
             <ul class={{
-                [prefix]:true
+                [prefix]:true,
+                [`${prefix}-vertical`]:this.vertical
             }}>
                 {slots}
             </ul>

@@ -8,7 +8,8 @@ export default defineComponent({
         rightSider:{
             type:Boolean,
             default:false
-        }
+        },
+        transparent:Boolean
     },
     render () {
         const slots = this.$slots.default && this.$slots.default()
@@ -16,7 +17,8 @@ export default defineComponent({
             <div class={{
                 [prefix]:true,
                 [this.class]:this.class,
-                [`${prefix}-right`]:this.rightSider
+                [`${prefix}-right`]:this.rightSider,
+                [`${prefix}-transparent`]:this.transparent
             }}>{slots}</div>
         )
     }
