@@ -10,7 +10,7 @@ export default defineComponent({
     },
     data() {
         return {
-            showSubmenu:true
+            showSubmenu:false
         }
     },
     inject:['vertical'],

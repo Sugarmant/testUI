@@ -8,9 +8,10 @@ export default defineComponent({
         vertical:Boolean
     },
     emits:['update:modelValue','select'],
+    inject:['menuGroup'],
     provide(){
         return {
-            menuGroup:this,
+            menuGroup:this.menuGroup?this.menuGroup:this,
             vertical:this.vertical
         }
     },
