@@ -12,7 +12,14 @@
 }
 
 .@{submenu}{
-    &-title{.menu}
+    &-title{.menu;display:flex;justify-content:space-between;
+        &:hover{color:@primary-color;}
+        &-active{
+            &>.@{icon-font}:last-of-type{transform:rotate(-90deg);}
+        }
+        span .@{icon-font}{margin-right:6px;}
+        &> .@{icon-font}:last-of-type{font-size:12px;font-weight:bold;transition:.1s;margin-left:6px;}
+    }
 }
 
 
