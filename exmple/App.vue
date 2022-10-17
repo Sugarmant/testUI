@@ -23,9 +23,9 @@
                     <Menu name="2">侧边二号</Menu>
                     <Submenu name="3">
                         <template #title>
-                            带下拉的菜单
+                            <Icon icon="&#xe7b4;" />带下拉的菜单
                         </template>
-                        <MenuGroup title="一号">
+                        <MenuGroup title="一号" vertical>
                             <Menu name="3-1">下拉1</Menu>
                             <Menu name="3-1">下拉2</Menu>
                             <Menu name="3-1">下拉3</Menu>
