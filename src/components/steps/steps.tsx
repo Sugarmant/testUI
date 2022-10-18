@@ -57,8 +57,8 @@ export default defineComponent({
             this.$emit('click', event);
         },
         updateChildProps (isInit) {
-            const total = this.$children.length;
-            this.$children.forEach((child, index) => {
+            const total = this.$children ? this.$children.length : 0;
+            this.$children && this.$children.forEach((child, index) => {
                 child.stepNumber = index + 1;
                 if(this.direction === 'horizontal') {
                     child.total = total
@@ -84,25 +84,33 @@ export default defineComponent({
             })
         },
         setNextError() {
-            this.$children.forEach((child, index) => {
+            this.$children && this.$children.forEach((child, index) => {
                 this.$children[index - 1].nextError = true
             })
         },
         updateCurrent() {
-            if (this.current < 0 || this.current >= this.$children.length) {
+            const len = this.$children ? this.$children.length : 0;
+            if (this.current < 0 || this.current >= len) {
                 return
             }
         },
         debouncedAppendRemove() {
             return debounce(function () {
-                // this.updateChildProps()
+                this.updateSteps()
             })
+        },
+        updateSteps () {
+            this.updateChildProps(true)
+            this.setNextError()
+            this.updateCurrent(true)
         }
     },
     mounted () {
         this.updateSteps();
-        this.$on('append', this.debouncedAppendRemove());
-        this.$on('remove', this.debouncedAppendRemove());
+        this.debouncedAppendRemove()
+        console.log(this.$children)
+        // this.$on('append', this.debouncedAppendRemove());
+        // this.$on('remove', this.debouncedAppendRemove());
     },
     watch: {
         current () {
@@ -113,28 +121,13 @@ export default defineComponent({
         }
     },
     render () {
-        const stepNumber = this.stepNumber;
-        const title = this.title;
-        const content = this.content;
+        const slots = this.$slots.default && this.$slots.default()
+        console.log(slots)
         return (
-            <div>
-                <div class="wrapClasses" style="styles">
-                    <div class="[prefixCls + '-tail']"><i></i></div>
-                    <div class="[prefixCls + '-head']">
-                        <div class="[prefixCls + '-head-inner']">
-                            <slot name="status">
-                                <span v-if="!this.icon && this.currentStatus != 'finish' && this.currentStatus != 'error'">{{ stepNumber }}</span>
-                                <span v-else class="iconClasses"></span>
-                            </slot>
-                        </div>
-                    </div>
-                    <div class="[prefixCls + '-main']">
-                        <div class="[prefixCls + '-title']">{{ title }}</div>
-                        <slot>
-                            <div v-if="this.content" class="[prefixCls + '-content']">{{ content }}</div>
-                        </slot>
-                    </div>
-                </div>
+            <div class={[
+                prefixCls,
+            ]}>
+                {slots}
             </div>
         )
     }

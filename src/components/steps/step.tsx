@@ -1,11 +1,13 @@
 import {defineComponent,h} from 'vue'
 import {oneOf} from "../../utils/nurse";
+import Emitter from "../../utils/mixin"
 
-const prefixCls = 'ivu-steps';
-const iconPrefixCls = 'ivu-icon';
+const prefixCls = 't-steps';
+const iconPrefixCls = 't-icon';
 export default defineComponent({
     name: 'Step',
     emits: ['click'],
+    mixins: [Emitter],
     props: {
         status: {
             validator (value) {
@@ -23,109 +25,86 @@ export default defineComponent({
             type: String
         }
     },
+    data () {
+        return {
+            prefixCls: prefixCls,
+            stepNumber: '',
+            nextError: false,
+            total: 1,
+            currentStatus: ''
+        };
+    },
     computed: {
-        classes () {
+        wrapClasses () {
             return [
-                `${prefixCls}`,
-                `${prefixCls}-${this.direction}`,
+                `${prefixCls}-item`,
+                `${prefixCls}-status-${this.currentStatus}`,
                 {
-                    [`${prefixCls}-${this.size}`]: !!this.size
+                    [`${prefixCls}-custom`]: !!this.icon,
+                    [`${prefixCls}-next-error`]: this.nextError
                 }
             ];
-        }
-    },
-    methods: {
-        updateChildProps (isInit) {
-            const total = this.$children.length;
-            this.$children.forEach((child, index) => {
-                child.stepNumber = index + 1;
-                if (this.direction === 'horizontal') {
-                    child.total = total;
-                }
-                // 如果已存在status,且在初始化时,则略过
-                // todo 如果当前是error,在current改变时需要处理
-                if (!(isInit && child.currentStatus)) {
-                    if (index == this.current) {
-                        if (this.status != 'error') {
-                            child.currentStatus = 'process';
-                        }
-                    } else if (index < this.current) {
-                        child.currentStatus = 'finish';
-                    } else {
-                        child.currentStatus = 'wait';
-                    }
-                }
-                if (child.currentStatus != 'error' && index != 0) {
-                    this.$children[index - 1].nextError = false;
-                }
-            });
         },
-        setNextError () {
-            this.$children.forEach((child, index) => {
-                if (child.currentStatus == 'error' && index != 0) {
-                    this.$children[index - 1].nextError = true;
-                }
-            });
-        },
-        updateCurrent (isInit) {
-            // 防止溢出边界
-            if (this.current < 0 || this.current >= this.$children.length ) {
-                return;
-            }
-            if (isInit) {
-                const current_status = this.$children[this.current].currentStatus;
-                if (!current_status) {
-                    this.$children[this.current].currentStatus = this.status;
-                }
+        iconClasses () {
+            let icon = '';
+            if (this.icon) {
+                icon = this.icon;
             } else {
-                this.$children[this.current].currentStatus = this.status;
+                if (this.currentStatus == 'finish') {
+                    icon = 'ios-checkmark';
+                } else if (this.currentStatus == 'error') {
+                    icon = 'ios-close';
+                }
             }
+            return [
+                `${prefixCls}-icon`,
+                `${iconPrefixCls}`,
+                {
+                    [`${iconPrefixCls}-${icon}`]: icon != ''
+                }
+            ];
         },
-        debouncedAppendRemove () {
-            return debounce(function () {
-                this.updateSteps();
-            });
-        },
-        updateSteps () {
-            this.updateChildProps(true);
-            this.setNextError();
-            this.updateCurrent(true);
+        styles () {
+            return {
+                width: `${1/this.total*100}%`
+            };
         }
-    },
-    mounted () {
-        this.updateSteps();
-        this.$on('append', this.debouncedAppendRemove());
-        this.$on('remove', this.debouncedAppendRemove());
     },
     watch: {
-        current () {
-            this.updateChildProps();
-        },
-        status () {
-            this.updateCurrent();
+        status (val) {
+            this.currentStatus = val;
+            if (this.currentStatus == 'error') {
+                this.$parent.setNextError();
+            }
         }
     },
+    created () {
+        this.currentStatus = this.status;
+    },
+    mounted () {
+        // this.dispatch('Steps', 'append');
+    },
+    beforeDestroy () {
+        // this.dispatch('Steps', 'remove');
+    },
     render () {
-        const stepNumber = this.stepNumber;
         const title = this.title;
-        const content = this.content;
+        const styles = this.styles;
+        const status = this.status;
+        const wrapClasses = this.wrapClasses;
+        const slots = this.$slots.default && this.$slots.default();
         return (
             <div>
-                <div class="wrapClasses" style="styles">
-                    <div class="[prefixCls + '-tail']"><i></i></div>
-                        <div class="[prefixCls + '-head']">
-                            <div class="[prefixCls + '-head-inner']">
-                                <v-slot name="status">
-                                    <span v-if="!this.icon && this.currentStatus != 'finish' && this.currentStatus != 'error'">{{ stepNumber }}</span>
-                                    <span v-else class="iconClasses"></span>
-                                </v-slot>
+                <div class={wrapClasses} style={styles}>
+                    <div class={{[`${prefixCls}-tail`]: true}}><i></i></div>
+                        <div class={[prefixCls + '-head']}>
+                            <div class={[prefixCls + '-head-inner']}>
+                                {slots}
                             </div>
                         </div>
-                    <div class="[prefixCls + '-main']">
-                        <div class="[prefixCls + '-title']">{{ title }}</div>
-                        <v-slot>
-                            <div v-if="content" class="[prefixCls + '-content']">{{ content }}</div>
-                        </v-slot>
+                    <div class={prefixCls + '-main'}>
+                        <div class={prefixCls + '-title'}>{ title }</div>
+                        {slots}
                 </div>
                 </div>
             </div>

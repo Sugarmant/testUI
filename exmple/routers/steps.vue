@@ -1,124 +1,19 @@
 <template>
     <div>
-<!--      <Steps :current="index">-->
-        <!--<Step title="开始"></Step>-->
-
-        <Step v-for="(item, index) in activitiList" :title="item.approveUserName" :key="index"></Step>
-        <!--<Step title="结束"></Step>-->
-<!--      </Steps>-->
+      <Steps :current="index">
+        <Step title="开始"></Step>
+        <Step title="中间"></Step>
+        <Step title="结束"></Step>
+      </Steps>
       <Button @click="change">change</Button>
       <div style="margin:30px">
         <h2>
           <a href="https://github.com/iview/iview/issues/6078">#6078</a>
         </h2>
         <br><br>
-<!--        <Steps class="demo-step-tip" :current="2" status="error" size="small">-->
-          <Step>
-            <div slot="status">
-              <Tooltip content="已完成" size="14" placement="top" transfer>
-                <Icon size="18" type="ios-checkmark" />
-              </Tooltip>
-            </div>
-          </Step>
-          <Step>
-            <div slot="status">
-              <Tooltip content="进行中" size="14" placement="top" transfer>
-                <Icon size="18" type="ios-checkmark" />
-              </Tooltip>
-            </div>
-          </Step>
-          <Step>
-            <div slot="status">
-              <Tooltip content="待处理" placement="top" transfer>
-                <Icon size="18" type="ios-checkmark" />
-              </Tooltip>
-            </div>
-          </Step>
-          <Step>
-            <div slot="status">
-              <Tooltip content="待进行" placement="top" transfer>
-                <Icon size="18" type="ios-checkmark" />
-              </Tooltip>
-            </div>
-          </Step>
-<!--        </Steps>-->
       </div>
       <br><br><br><br>
       <hr>
-      <!--<Steps :current="1" size="small">-->
-      <!--<Step title="已完成" content="这里是该步骤的描述信息这里是该步骤的描述信息这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="进行中" content="这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="待进行" content="这里是该步骤的描述信息这里是该步骤的描述信息这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="待进行" content="这里是该步骤的描述信息"></Step>-->
-      <!--</Steps>-->
-      <!--<br>-->
-      <!--<Steps :current="2">-->
-      <!--<Step title="已完成"></Step>-->
-      <!--<Step title="进行中"></Step>-->
-      <!--<Step title="待进行"></Step>-->
-      <!--<Step title="待进行"></Step>-->
-      <!--</Steps>-->
-      <!--<br>-->
-      <!--<Steps :current="1" size="small">-->
-      <!--<Step title="已完成"></Step>-->
-      <!--<Step title="进行中"></Step>-->
-      <!--<Step title="待进行"></Step>-->
-      <!--<Step title="待进行"></Step>-->
-      <!--</Steps>-->
-      <!--<br>-->
-      <!--<Steps :current="1" direction="vertical" size="small">-->
-      <!--<Step title="注册" icon="person-add"></Step>-->
-      <!--<Step title="上传头像" icon="camera" content="这里是该步骤的描述信息这里是该步骤的描述信息这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="验证邮箱" icon="email"></Step>-->
-      <!--</Steps>-->
-      <!--<Steps :current="1" direction="vertical">-->
-      <!--<Step title="注册" icon="person-add"></Step>-->
-      <!--<Step title="上传头像" icon="camera" content="这里是该步骤的描述信息这里是该步骤的描述信息这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="验证邮箱" icon="email"></Step>-->
-      <!--</Steps>-->
-      <!--<Steps :current="-1" direction="vertical">-->
-      <!--<Step title="注册" icon="person-add"></Step>-->
-      <!--<Step title="上传头像" icon="camera" content="这里是该步骤的描述信息这里是该步骤的描述信息这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="验证邮箱" status="finish" icon="email"></Step>-->
-      <!--</Steps>-->
-      <!--<br>-->
-      <!--<p>当前正在进行第 {{ current + 1 }} 步</p>-->
-      <!--<Steps :current="current">-->
-      <!--<Step title="步骤1"></Step>-->
-      <!--<Step title="步骤2"></Step>-->
-      <!--<Step title="步骤3"></Step>-->
-      <!--<Step title="步骤4"></Step>-->
-      <!--</Steps>-->
-      <!--<br>-->
-      <!--<i-button type="primary" @click.native="next">下一步</i-button>-->
-      <!--<br><br><br>-->
-      <!--<Steps :current="1" direction="vertical" size="small">-->
-      <!--<Step title="已完成" content="这里是该步骤的描述信息这里是该步骤的描述信息这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="进行中" content="这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="待进行" content="这里是该步骤的描述信息这里是该步骤的描述信息这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="待进行" content="这里是该步骤的描述信息"></Step>-->
-      <!--</Steps>-->
-      <!--<br><br>-->
-      <!--<Steps :current="1" status="error">-->
-      <!--<Step title="已完成" content="这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="进行中" content="这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="待进行" content="这里是该步骤的描述信息"></Step>-->
-      <!--<Step title="待进行" content="这里是该步骤的描述信息"></Step>-->
-      <!--</Steps>-->
-      <!--<Steps direction="vertical" :current="3">-->
-      <!--<Step title="已完成" content="这里是该步骤的描述信息">-->
-      <!--<div style="font-size: 16px; color: green">这里是该步骤的描述信息1</div>-->
-      <!--</Step>-->
-      <!--<Step title="进行中" content="这里是该步骤的描述信息">-->
-      <!--<div style="font-size: 24px; color: red">这里是该步骤的描述信息2</div>-->
-      <!--</Step>-->
-      <!--<Step title="待进行" content="这里是该步骤的描述信息">-->
-      <!--<div style="font-size: 46px; color: blue">这里是该步骤的描述信息3</div>-->
-      <!--</Step>-->
-      <!--<Step title="待进行" content="这里是该步骤的描述信息">-->
-      <!--<div style="font-size: 24px; color: green">这里是该步骤的描述信息4</div>-->
-      <!--</Step>-->
-      <!--</Steps>-->
     </div>
 </template>
 
