@@ -1,4 +1,5 @@
 <template>
+<div class="row">
     <h2>概览</h2>
     <Row>
         <Col><div>span="4"</div></Col>
@@ -90,6 +91,7 @@
         <Col flex="1 0 50%"><div>flex="1 0 50%"</div></Col>
         <Col flex="1"><div>flex="1"</div></Col>
     </Row>
+    </div>
 </template>
 
 <script>
@@ -115,10 +117,11 @@ export default {
 
 
 <style lang="less">
-    .t-row{background-color:#f0f0f0;
-        .t-col div{width:100%;height:100%;box-sizing:border-box;padding:10px 0;text-align:center;color:#fff;background-color:rgba(0,153,229,50%);}
-        .t-col:nth-child(2n) div{background-color:rgba(0,153,229,90%);}
+    .row{
+        .t-row{background-color:#f0f0f0;
+            .t-col div{width:100%;height:100%;box-sizing:border-box;padding:10px 0;text-align:center;color:#fff;background-color:rgba(0,153,229,50%);}
+            .t-col:nth-child(2n) div{background-color:rgba(0,153,229,90%);}
+        }
+        .setHeight{height:170px}
     }
-
-    .setHeight{height:170px}
 </style>
