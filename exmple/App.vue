@@ -53,7 +53,9 @@
             </Sider>
             <Layout>
                 <Main>
-                    <router-view></router-view>
+                    <article class="mainView">
+                        <router-view></router-view>
+                    </article>
                 </Main>
             </Layout>
         </Layout>
@@ -91,4 +93,5 @@
     .sider{
         em{color:inherit;display:block;font-size:12px;font-style:normal;opacity:.5;}
     }
+    .mainView{background-color:#fff;padding:30px;border-radius:4px;}
 </style>
