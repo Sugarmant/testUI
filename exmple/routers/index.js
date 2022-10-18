@@ -1,9 +1,9 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHashHistory,createWebHistory } from 'vue-router';
 
 const router = createRouter({
     esModule: false,
     mode: 'hash',
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes: [
         {path:'/',component:()=>import('./index.vue')},
         {path:'/button',component:()=>import('./button.vue')},

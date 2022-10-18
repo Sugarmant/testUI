@@ -3,7 +3,8 @@ const prefix = 't-menu'
 export default defineComponent({
     name: 'Menu',
     props: {
-        name:String
+        name:String,
+        to:String
     },
     inject:{
         menuGroup:{
@@ -13,18 +14,24 @@ export default defineComponent({
     render () {
         const slots = this.$slots.default && this.$slots.default()
 
-        const onChangeMenu = ()=>{
+        const onChangeMenu = e=>{
             if(this.menuGroup){
                 this.menuGroup.$emit('update:modelValue',this.name)
                 this.menuGroup.$emit('select',this.name)
             }
-            
+            if(this.$router) {
+                e.preventDefault()
+                if(this.to) this.$router.push(this.to)
+                
+                console.log(this.$router)
+            }
         }
+
         return (
             <li class={{
                 [prefix]:true,
                 [`${prefix}-active`]:this.menuGroup && this.menuGroup.modelValue === this.name
-            }} onClick={onChangeMenu}>{slots}</li>
+            }}><a onClick={onChangeMenu} href={this.to}>{slots}</a></li>
         )
     }
 })
