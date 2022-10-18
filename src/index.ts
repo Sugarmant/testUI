@@ -21,6 +21,14 @@ import { default as Submenu} from './components/Submenu'
 import { default as Main} from './components/Main'
 import { default as Sider} from './components/Sider'
 
+/* 排版 */
+import { default as Typo} from './components/Typograpy'
+import { default as Title} from './components/Typograpy/title'
+import { default as Paragraph} from './components/Typograpy/pragraph'
+import { default as Blockquote} from './components/Typograpy/blockquote'
+import { default as Text} from './components/Typograpy/text'
+import { default as Link} from './components/Typograpy/link'
+
 export {
     Button,
     ButtonGroup,
@@ -43,7 +51,9 @@ export {
     MenuGroup,
     Submenu,
     Main,
-    Sider
+    Sider,
+    
+    Typo,Title,Paragraph,Blockquote,Text,Link
 }
 
 
@@ -69,7 +79,9 @@ const components = [
     MenuGroup,
     Submenu,
     Main,
-    Sider
+    Sider,
+
+    Typo,Title,Paragraph,Blockquote,Text,Link
 ]
 
 export default function(vue){

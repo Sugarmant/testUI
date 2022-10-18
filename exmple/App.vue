@@ -31,7 +31,8 @@
                                 <MenuGroup title="一号" vertical>
                                     <Menu to="/button" name="3-1-1"><span>Button <em>按钮</em></span></Menu>
                                     <Menu to="/icon" name="3-1-2"><span>Icon <em>图标</em></span></Menu>
-                                    <Menu to="/space" name="3-1-3"><span>Space <em>间距</em></span></Menu>
+                                    <Menu to="/typography" name="3-1-3"><span>Typo <em>排版</em></span></Menu>
+                                    <Menu to="/space" name="3-1-4"><span>Space <em>间距</em></span></Menu>
                                 </MenuGroup>
                             </Submenu>
                             <Submenu name="3-2">
