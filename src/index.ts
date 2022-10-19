@@ -21,6 +21,7 @@ import { default as Submenu} from './components/Submenu'
 import { default as Main} from './components/Main'
 import { default as Sider} from './components/Sider'
 import { default as Card} from './components/Card'
+import { default as Divider} from './components/Divider'
 
 /* 排版 */
 import { default as Typo} from './components/Typograpy'
@@ -54,6 +55,7 @@ export {
     Main,
     Sider,
     Card,
+    Divider,
     
     Typo,Title,Paragraph,Blockquote,Text,Link
 }
@@ -83,6 +85,7 @@ const components = [
     Main,
     Sider,
     Card,
+    Divider,
 
     Typo,Title,Paragraph,Blockquote,Text,Link
 ]

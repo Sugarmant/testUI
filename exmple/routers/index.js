@@ -18,7 +18,8 @@ const router = createRouter({
         {path:'/radio',component:()=>import('./radio.vue')},
         {path:'/typo',component:()=>import('./typography.vue')},
         {path:'/typography',component:()=>import('./typography.vue')},
-        {path:'/card',component:()=>import('./card.vue')}
+        {path:'/card',component:()=>import('./card.vue')},
+        {path:'/divider',component:()=>import('./divider.vue')}
     ]
 })
 

@@ -40,6 +40,7 @@
                                 <MenuGroup title="一号" vertical>
                                     <Menu to="/row" name="3-2-1"><span>Row/Col <em>栅格</em></span></Menu>
                                     <Menu to="/card" name="3-2-2"><span>Card <em>卡片</em></span></Menu>
+                                    <Menu to="/divider" name="3-2-3"><span>Divider <em>分割线</em></span></Menu>
                                 </MenuGroup>
                             </Submenu>
                             <Submenu name="3-3">

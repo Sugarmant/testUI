@@ -41,7 +41,10 @@ export default defineComponent({
             default:false
         },
         nativeType:String,
-        focus:Boolean,
+        focus:{
+            type:Boolean,
+            default:true
+        },
         long:Boolean,
         icon:String,
         loading:Boolean

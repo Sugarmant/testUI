@@ -2,6 +2,129 @@
     <Typo>
         <Title h1>Button 按钮</Title>
         <Title h2>示例</Title>
+        <Card>
+            <Space vertical>
+                <Space>
+                    <Button>default</Button>
+                    <Button type="dashed">dashed</Button>
+                    <Button type="primary">primary</Button>
+                    <Button type="info">info</Button>
+                    <Button type="success">success</Button>
+                    <Button type="warning">warning</Button>
+                    <Button type="error">error</Button>
+                </Space>
+
+                <Space>
+                    <Button style="visibility:hidden" transparent="half">default</Button>
+                    <Button style="visibility:hidden" transparent="half" type="dashed">dashed</Button>
+                    <Button transparent="half" type="primary">primary</Button>
+                    <Button transparent="half" type="info">info</Button>
+                    <Button transparent="half" type="success">success</Button>
+                    <Button transparent="half" type="warning">warning</Button>
+                    <Button transparent="half" type="error">error</Button>
+                </Space>
+
+                <Space>
+                    <Button style="visibility:hidden" transparent="full">default</Button>
+                    <Button style="visibility:hidden" transparent="full" type="dashed">dashed</Button>
+                    <Button transparent="full" type="primary">primary</Button>
+                    <Button transparent="full" type="info">info</Button>
+                    <Button transparent="full" type="success">success</Button>
+                    <Button transparent="full" type="warning">warning</Button>
+                    <Button transparent="full" type="error">error</Button>
+                </Space>
+            </Space>
+
+            <Divider>类型</Divider>
+            <Paragraph>
+                通过设置<Text code>type</Text>来改变按钮的类型：<Text code>default</Text>、<Text code>primary</Text>、<Text code>info</Text>、<Text code>success</Text>、<Text code>warning</Text>、<Text code>error</Text>
+            </Paragraph>
+            <Paragraph>
+                通过设置<Text code>transparent</Text>来控制透明度：<Text code>default</Text>、<Text code>half</Text>、<Text code>full</Text>
+            </Paragraph>
+        </Card>
+
+        <Divider hide />
+
+        <Card>
+            <Space vertical>
+                <Space>
+                    <Button type="primary" icon="&#xe7f4;"></Button>
+                    <Button type="primary" icon="&#xe7f4;">带图标</Button>
+                    <Button type="primary">Default</Button>
+                    <Button type="primary" shape="circle">circle</Button>
+                    <Button type="primary" shape="square">square</Button>
+                </Space>
+                <Space>
+                    <Button icon="&#xe7f4;"></Button>
+                    <Button icon="&#xe7f4;">带图标</Button>
+                    <Button>Default</Button>
+                    <Button shape="circle">circle</Button>
+                    <Button shape="square">square</Button>
+                </Space>
+            </Space>
+            <Divider>图标&形状</Divider>
+            <Paragraph>
+                通过设置属性<Text code>icon</Text>嵌入一个图标组件
+            </Paragraph>
+            <Paragraph>
+                通过设置<Text code>shape</Text>来改变形状: <Text code>default</Text>、<Text code>circle</Text>、<Text code>square</Text>
+            </Paragraph>
+        </Card>
+
+        <Divider hide></Divider>
+
+        <Card>
+            <Space vertical>
+                <Space>
+                    <Button type="primary" size="small">small</Button>
+                    <Button type="primary">default</Button>
+                    <Button type="primary" size="large">large</Button>
+                </Space>
+                <Space>
+                    <Button size="large">large</Button>
+                    <Button>default</Button>
+                    <Button size="small">small</Button>
+                </Space>
+            </Space>
+            <Divider>尺寸</Divider>
+            <Paragraph>
+                通过设置<Text code>size</Text>来改变尺寸：<Text code>small</Text>、<Text code>default</Text>、<Text code>large</Text>
+            </Paragraph>
+        </Card>
+
+        <Divider hide></Divider>
+
+        <Card>
+            <Button style="margin-bottom:15px" type="primary" long>长按钮</Button>
+            <Button long>长按钮</Button>
+            <Divider>长按钮</Divider>
+            <Paragraph>
+                通过设置<Text code>long</Text>来改变设置按钮为长按钮
+            </Paragraph>
+        </Card>
+
+        <Divider hide></Divider>
+
+        <Card>
+            <Space vertical>
+                <Space>
+                    <Button type="primary">small</Button>
+                    <Button>default</Button>
+                    <Button type="dashed">large</Button>
+                </Space>
+                <Space>
+                    <Button disabled>large</Button>
+                    <Button disabled>default</Button>
+                    <Button disabled>small</Button>
+                </Space>
+            </Space>
+            <Divider>禁用状态</Divider>
+            <Paragraph>
+                通过设置<Text code>disabled</Text>来禁用按钮
+            </Paragraph>
+        </Card>
+        
     </Typo>
     <Row>
         <Col>
