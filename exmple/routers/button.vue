@@ -1,4 +1,8 @@
 <template>
+    <Typo>
+        <Title h1>Button 按钮</Title>
+        <Title h2>示例</Title>
+    </Typo>
     <Row>
         <Col>
             <Space vertical>

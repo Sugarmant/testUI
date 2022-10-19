@@ -1,7 +1,9 @@
 @typo: ~"@{css-prefix}typography";
 
 .@{typo}{color:@title-color;
-    &-paragraph{color:@text-color}
+    &-paragraph{color:@text-color;font-size:14px;margin:0;margin-bottom:1em;
+        &:last-child{margin-bottom:0}
+    }
     &-blockquote{background-color:tint(@primary-color,90%);color:@text-color;margin:0;border-radius:4px;border-left:solid 6px @primary-color;padding:15px;box-sizing:border-box;}
 
     &-text{font-size:14px;color:@text-color}
@@ -19,4 +21,11 @@
     &-italic{font-style:italic}
 
     &-link{font-size:14px;color:@primary-color;text-decoration:none;}
+
+    &-h1{margin:0;font-size:32px;margin-bottom:.5em;font-weight:normal;}
+    &-h2{margin:0;font-size:28px;margin-bottom:.5em;margin-top:1em;font-weight:normal;}
+    &-h3{margin:0;font-size:24px;margin-bottom:.5em;margin-top:1em;font-weight:normal;}
+    &-h4{margin:0;font-size:20px;margin-bottom:.5em;margin-top:1em;font-weight:normal;}
+    &-h5{margin:0;font-size:16px;margin-bottom:.5em;margin-top:1em;font-weight:normal;}
+    &-h6{margin:0;font-size:12px;margin-bottom:.5em;margin-top:1em;font-weight:normal;}
 }

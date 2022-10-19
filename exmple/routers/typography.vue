@@ -12,9 +12,8 @@
 
         <Blockquote>
             asdsad
-            <Paragraph>
-                asd
-            </Paragraph>
+            <Paragraph> asd </Paragraph>
+            <Paragraph> asd </Paragraph>
         </Blockquote>
 
         

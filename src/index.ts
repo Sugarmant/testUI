@@ -20,6 +20,7 @@ import { default as MenuGroup} from './components/MenuGroup'
 import { default as Submenu} from './components/Submenu'
 import { default as Main} from './components/Main'
 import { default as Sider} from './components/Sider'
+import { default as Card} from './components/Card'
 
 /* 排版 */
 import { default as Typo} from './components/Typograpy'
@@ -52,6 +53,7 @@ export {
     Submenu,
     Main,
     Sider,
+    Card,
     
     Typo,Title,Paragraph,Blockquote,Text,Link
 }
@@ -80,6 +82,7 @@ const components = [
     Submenu,
     Main,
     Sider,
+    Card,
 
     Typo,Title,Paragraph,Blockquote,Text,Link
 ]
