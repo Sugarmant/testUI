@@ -12,7 +12,7 @@ export default defineComponent({
         status: {
             validator (value) {
                 return oneOf(value, ['wait', 'process', 'finish', 'error']);
-            }
+            },
         },
         title: {
             type: String,
@@ -22,6 +22,9 @@ export default defineComponent({
             type: String
         },
         icon: {
+            type: String
+        },
+        currentStatus: {
             type: String
         }
     },
@@ -72,6 +75,7 @@ export default defineComponent({
     },
     watch: {
         status (val) {
+            console.log(val)
             this.currentStatus = val;
             if (this.currentStatus == 'error') {
                 this.$parent.setNextError();
@@ -82,6 +86,7 @@ export default defineComponent({
         this.currentStatus = this.status;
     },
     mounted () {
+        this.currentStatus = this.status;
         // this.dispatch('Steps', 'append');
     },
     beforeDestroy () {
@@ -89,22 +94,34 @@ export default defineComponent({
     },
     render () {
         const title = this.title;
+        const content = this.content
         const styles = this.styles;
         const status = this.status;
         const wrapClasses = this.wrapClasses;
-        const slots = this.$slots.default && this.$slots.default();
+        const iconClasses = this.iconClasses
+        const stepNumber = this.stepNumber
+        const icon = this.icon
+        const currentStatus = this.currentStatus
+        console.log(this.status)
         return (
             <div>
                 <div class={wrapClasses} style={styles}>
-                    <div class={{[`${prefixCls}-tail`]: true}}><i></i></div>
-                        <div class={[prefixCls + '-head']}>
+                    <div class={[`${prefixCls}-tail`]}><i></i></div>
+                    <div class={[prefixCls + '-head']}>
                             <div class={[prefixCls + '-head-inner']}>
-                                {slots}
+                                <slot name={status}>
+                                    {!icon && currentStatus != 'finish' && currentStatus != 'error' ?
+                                        <span>{{ stepNumber }}</span> :
+                                        <span class={iconClasses}></span>
+                                    }
+                                </slot>
                             </div>
                         </div>
                     <div class={prefixCls + '-main'}>
                         <div class={prefixCls + '-title'}>{ title }</div>
-                        {slots}
+                        <slot>
+                            {content ? <div class={prefixCls + '-content'}>{ content }</div> : null}
+                        </slot>
                 </div>
                 </div>
             </div>

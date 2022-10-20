@@ -1,17 +1,17 @@
 <template>
     <div>
-      <Steps :current="index">
-        <Step title="开始"></Step>
-        <Step title="中间"></Step>
-        <Step title="结束"></Step>
+      <Steps :current="1">
+        <Step title="开始" content="这里是开始"></Step>
+        <Step title="中间" content="这里是中间"></Step>
+        <Step title="结束" content="这里是结束"></Step>
       </Steps>
-      <Button @click="change">change</Button>
-      <div style="margin:30px">
-        <h2>
-          <a href="https://github.com/iview/iview/issues/6078">#6078</a>
-        </h2>
-        <br><br>
-      </div>
+<!--      <Button @click="change">change</Button>-->
+<!--      <div style="margin:30px">-->
+<!--        <h2>-->
+<!--          <a href="https://github.com/iview/iview/issues/6078">#6078</a>-->
+<!--        </h2>-->
+<!--        <br><br>-->
+<!--      </div>-->
       <br><br><br><br>
       <hr>
     </div>

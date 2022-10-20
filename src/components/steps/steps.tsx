@@ -32,7 +32,7 @@ export default defineComponent({
         size: {
             validator (value) {
                 return oneOf(value, ['small']);
-            }
+            },
         },
         direction: {
             validator (value) {
@@ -52,13 +52,19 @@ export default defineComponent({
             ]
         }
     },
+    data() {
+        return {
+            slots: this.$slots.default && this.$slots.default()
+        }
+    },
     methods: {
         handleClickLink (event) {
             this.$emit('click', event);
         },
         updateChildProps (isInit) {
-            const total = this.$children ? this.$children.length : 0;
-            this.$children && this.$children.forEach((child, index) => {
+            const slots = this.$slots.default && this.$slots.default()
+            const total = slots?.length
+            slots && slots.forEach((child, index) => {
                 child.stepNumber = index + 1;
                 if(this.direction === 'horizontal') {
                     child.total = total
@@ -79,17 +85,21 @@ export default defineComponent({
                 }
 
                 if(child.currentStatus != 'error' && index != 0) {
-                    this.$children[index - 1].nextError = true
+                    slots[index - 1].nextError = true
                 }
             })
+            this.slots = slots
         },
         setNextError() {
-            this.$children && this.$children.forEach((child, index) => {
-                this.$children[index - 1].nextError = true
+            this.slots && this.slots.forEach((child, index) => {
+                if(child.currentStatus != 'error' && index != 0) {
+                    this.slots[index - 1].nextError = true
+                }
+                this.slots[index].props['currentStatus'] = child.currentStatus
             })
         },
         updateCurrent() {
-            const len = this.$children ? this.$children.length : 0;
+            const len = this.slots ? this.slots.length : 0;
             if (this.current < 0 || this.current >= len) {
                 return
             }
@@ -108,7 +118,7 @@ export default defineComponent({
     mounted () {
         this.updateSteps();
         this.debouncedAppendRemove()
-        console.log(this.$children)
+        this.setNextError()
         // this.$on('append', this.debouncedAppendRemove());
         // this.$on('remove', this.debouncedAppendRemove());
     },
@@ -121,13 +131,14 @@ export default defineComponent({
         }
     },
     render () {
-        const slots = this.$slots.default && this.$slots.default()
-        console.log(slots)
+        const slots = this.slots
+        const classes = this.classes
+        console.log(this.slots)
         return (
-            <div class={[
-                prefixCls,
-            ]}>
-                {slots}
+            <div class={classes}>
+                <slot>
+                    {slots ? slots : null}
+                </slot>
             </div>
         )
     }
