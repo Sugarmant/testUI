@@ -47,6 +47,7 @@
                                 <template #title>表单组件</template>
                                 <MenuGroup title="一号" vertical>
                                     <Menu to="/radio" name="3-3-1"><span>Radio <em>单选框</em></span></Menu>
+                                    <Menu to="/table" name="3-3-2"><span>Table <em>表格</em></span></Menu>
                                 </MenuGroup>
                             </Submenu>
                         </MenuGroup>

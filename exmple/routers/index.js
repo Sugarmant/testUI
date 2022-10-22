@@ -19,7 +19,8 @@ const router = createRouter({
         {path:'/typo',component:()=>import('./typography.vue')},
         {path:'/typography',component:()=>import('./typography.vue')},
         {path:'/card',component:()=>import('./card.vue')},
-        {path:'/divider',component:()=>import('./divider.vue')}
+        {path:'/divider',component:()=>import('./divider.vue')},
+        {path:'/table',component:()=>import('./table.vue')}
     ]
 })
 
