@@ -1,0 +1,68 @@
+@progress: ~"@{css-prefix}progress";
+
+.@{progress} {
+  & {
+    // 设置基本类型
+    .progress
+  }
+
+  &-vertical {
+    // 设置高度
+    .progress-vertical
+  }
+
+  &-outer {
+    // 设置padding与margin
+    .progress-outer
+  }
+
+  &-vertical &-outer {
+    // 内部高度与margin基本类型
+    .progress-vertical .progress-outer
+  }
+
+  &-inner {
+    //设置内部基本类型
+    .progress--inner
+  }
+
+  &-vertical &-inner {
+    // 设置元素内部高度
+    .progress-vertical .progress-inner
+  }
+
+  &-bg {
+    // 设置基本背景颜色
+    .progress-bg
+  }
+
+  &-success-bg {
+    //设置如果成功的背景颜色
+    .progress-success-bg
+  }
+
+  &-text {
+    // 文字的基本设置
+    .progress-text
+  }
+
+  &-active {
+    // 设置展示效果
+    .progress-active
+  }
+
+  &-vertical&-active {
+    //设置显示时高度
+    .progress-vertical .progress-active
+  }
+
+  &-wrong {
+    // 设置错误的背景颜色
+    .progress-wrong
+  }
+
+  &-success {
+    //设置成功的背景颜色
+    .progress-success
+  }
+}
