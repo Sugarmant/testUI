@@ -2,7 +2,9 @@
     <Layout>
         <Header class="header">
             <MenuGroup @select="onSelect" v-model="currentName">
-                <Menu name="1"><Icon icon="&#xe7ec;"/>菜单一号</Menu>
+                <Menu name="1">
+                    <Icon icon="&#xe7ec;" />菜单一号
+                </Menu>
                 <Menu name="2">菜单二号</Menu>
                 <Submenu name="3">
                     <template #title>
@@ -19,7 +21,9 @@
         <Layout>
             <Sider class="sider">
                 <MenuGroup vertical v-model="currentSide">
-                    <Menu name="1"><Icon icon="&#xe7ec;"/>侧边一号</Menu>
+                    <Menu name="1">
+                        <Icon icon="&#xe7ec;" />侧边一号
+                    </Menu>
                     <Menu name="2">侧边二号</Menu>
                     <Submenu name="3">
                         <template #title>
@@ -50,6 +54,12 @@
                                     <Menu to="/table" name="3-3-2"><span>Table <em>表格</em></span></Menu>
                                 </MenuGroup>
                             </Submenu>
+                            <Submenu name="3-4">
+                                <template #title>展示组件</template>
+                                <MenuGroup title="一号" vertical>
+                                    <Menu to="/progress" name="3-4-1"><span>Progress<em>进度条</em></span></Menu>
+                                </MenuGroup>
+                            </Submenu>
                         </MenuGroup>
                     </Submenu>
                 </MenuGroup>
@@ -62,39 +72,53 @@
                 </Main>
             </Layout>
         </Layout>
-        
+
     </Layout>
 </template>
 
 <script>
-    import {ref} from 'vue'
-    export default {
-        components:{
-            // TButton
-        },
-        setup(){
-            const currentName = ref('1')
-            const currentSide = ref('1')
-            const onSelect = val=>{
-                console.log(val)
-            }
+import { ref } from 'vue'
+export default {
+    components: {
+        // TButton
+    },
+    setup() {
+        const currentName = ref('1')
+        const currentSide = ref('1')
+        const onSelect = val => {
+            console.log(val)
+        }
 
-            return {
-               currentName,
-               currentSide,
+        return {
+            currentName,
+            currentSide,
 
-               
-               onSelect
-            }
+
+            onSelect
         }
     }
+}
 </script>
 
 
 <style lang="less">
-    body{margin:0}
-    .sider{
-        em{color:inherit;display:block;font-size:12px;font-style:normal;opacity:.5;}
+body {
+    margin: 0
+}
+
+.sider {
+    em {
+        color: inherit;
+        display: block;
+        font-size: 12px;
+        font-style: normal;
+        opacity: .5;
     }
-    .mainView{background-color:#fff;padding:30px;border-radius:4px;}
+}
+
+.mainView {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 4px;
+}
 </style>
