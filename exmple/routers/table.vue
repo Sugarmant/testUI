@@ -1,5 +1,30 @@
 <template>
-    <Table :columns="columns" :data="data"></Table>
+    <Typo>
+        <Title h1>Table 表格</Title>
+        <Title h3>基础使用</Title>
+        <Card>
+            <Table :columns="columns" :data="data"></Table>
+        </Card>
+
+        <Divider />
+
+        <Title h3>表格间隔 <Text code>stripe</Text></Title>
+        <Card>
+            <Table stripe :columns="columns" :data="data"></Table>
+            <Divider>
+                设置属性<Text code>stripe</Text>来设置表格间隔显示不同颜色
+            </Divider>
+        </Card>
+
+        <Title h3>固定表头 <Text code>height</Text></Title>
+        <Card>
+            <Table stripe :columns="columns" :data="data.concat(data)" :height="200"></Table>
+            <Divider>
+                设置属性<Text code>height</Text>来固定表格高度，表头会自动固定。
+            </Divider>
+        </Card>
+    </Typo>
+    
 </template>
 
 <script>

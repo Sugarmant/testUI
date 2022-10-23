@@ -7,10 +7,10 @@ export default defineComponent({
     props: {
         columns:Array,
         data:Array,
-        stripe:Boolean
+        stripe:Boolean,
+        height:Number
     },
     render () {
-
         const thead = (
             <thead class={`${prefix}-thead`}>
                 <tr class={`${prefix}-thead-tr`}>
@@ -24,7 +24,7 @@ export default defineComponent({
         )
 
         const tbody = (
-            <tbody class={`${prefix}-tbody`}>
+            <tbody class={`${prefix}-tbody`} style={`height:${this.height-48}px`}>
                 {this.data.map(v=>{
                     return (
                         <tr class={`${prefix}-tbody-tr`}>
@@ -40,7 +40,7 @@ export default defineComponent({
         )
 
         return (
-            <table cellspacing="0" cellpadding="0" border="0" class={{
+            <table cellspacing="0" cellpadding="0" border="0" style={`height:${this.height}px`} class={{
                 [prefix]:true,
                 [`${prefix}-stripe`]:this.stripe
             }}>
