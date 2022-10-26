@@ -20,12 +20,20 @@ export default defineComponent({
     render () {
 
         const $theadBody = ref()
-        const $tbodyAutoRef = ref()
+        const $tbodyBody = ref()
+        const $wrapper = ref()
         const $scrollbarHolder = ref()
 
+        let allSettledWidth = 0
+        let settledLength = 0
         const colgroupCol = (
             this.columns.map(v=>{
-                return <col width={`${100/this.columns.length-0.01}%`} />
+                if(v.width){
+                    allSettledWidth+=v.width
+                    settledLength++
+                    return <col width={`${v.width}`} />
+                }
+                return <col/>
             })
         )
 
@@ -52,7 +60,7 @@ export default defineComponent({
         )
 
         const tbody = (
-            <div ref={$tbodyAutoRef} class={{
+            <div ref={$tbodyBody} class={{
                 [`${prefix}-auto`]:true,
                 [`${prefix}-stripe`]:this.stripe,
             }} style={`height:${this.height-48}px`}>
@@ -81,8 +89,8 @@ export default defineComponent({
 
         
         nextTick(()=>{
-            if($tbodyAutoRef.value && $scrollbarHolder.value){
-                const holderWidth = ($tbodyAutoRef.value.offsetWidth - $tbodyAutoRef.value.clientWidth)
+            if($wrapper.value && $scrollbarHolder.value){
+                const holderWidth = ($wrapper.value.offsetWidth - $wrapper.value.clientWidth)
                 $theadBody.value.width = $theadBody.value.offsetWidth+'px'
                 for(const col of $theadBody.value.querySelector('colgroup').childNodes){
                     if(col instanceof HTMLTableColElement){
@@ -91,10 +99,19 @@ export default defineComponent({
                 }
                 $scrollbarHolder.value.width = holderWidth
             }
+
+            const avarageWidth = ($wrapper.value.clientWidth-allSettledWidth)/(this.columns.length-settledLength)
+            console.log($tbodyBody.value.querySelector('colgroup').childNodes)
+            for(const col of $theadBody.value.querySelector('colgroup').childNodes){
+                if(col instanceof HTMLTableColElement && !col.getAttribute('width')) col.setAttribute('width',avarageWidth+'')
+            }
+            for(const col of $tbodyBody.value.querySelector('colgroup').childNodes){
+                if(col instanceof HTMLTableColElement && !col.getAttribute('width'))  col.setAttribute('width',avarageWidth+'')
+            }
         })
 
         return (
-            <div class={{
+            <div ref={$wrapper} class={{
                 [`${prefix}-wrapper`]:true,
             }}>
                 {this.columns && this.columns.length>0?thead:null}

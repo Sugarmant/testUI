@@ -202,38 +202,70 @@
         <Divider hide/> 
         <Title h3>API</Title>
 
-        <Table border :columns="columns" :data="data"></Table>
+        <Title h4>Button Props</Title>
+        <Table border :columns="buttonProps.columns" :data="buttonProps.data"></Table>
+
+        <Title h4>Button Events</Title>
+        <Table border :columns="buttonEvents.columns" :data="buttonEvents.data"></Table>
+
+        <Title h4>ButtonGroup props</Title>
+        <Table border :columns="buttonGroupProps.columns" :data="buttonGroupProps.data"></Table>
     </Typo>
         
 </template>
 
 <script>
-import {ref} from 'vue'
 export default {
 
     setup() {
-        const columns = [
-            {title:'属性',key:'prop'},
-            {title:'说明',key:'description',type:'html'},
-            {title:'类型',key:'type'},
-            {title:'默认值',key:'default'}
-        ]
+        const buttonProps = {
+            columns:[
+                {title:'属性',key:'prop',width:140},
+                {title:'说明',key:'description',type:'html'},
+                {title:'类型',key:'type',width:100},
+                {title:'默认值',key:'default',width:100}
+            ],
+            data:[
+                {prop:'type',type:'String',default:'default',description:"按钮类型，可选值 <code>default</code>、<code>dashed</code>、<code>primary</code>、<code>info</code>、<code>success</code>、<code>warning</code>、<code>error</code>或者不设置"},
+                {prop:'transparent',type:'String',default:'default',description:"按钮透明度，可选值 <code>default</code>、<code>half</code>、<code>full</code>或者不设置"},
+                {prop:'shape',type:'String',default:'default',description:"按钮形状，可选值 <code>default</code>、<code>circle</code>、<code>square</code>或者不设置"},
+                {prop:'size',type:'String',default:'default',description:"按钮大小，可选值为 <code>large</code>、<code>small</code>、<code>default</code> 或者不设置"},
+                {prop:'native-type',type:'String',default:'false',description:"设置button原生的type，可选值 <code>button</code>、<code>submit</code>、<code>rest</code>"},
+                {prop:'icon',type:'String',default:'-',description:"设置按钮的图标"},
+                {prop:'long',type:'Boolean',default:'-',description:"开启后，按钮的长度为 100%"},
+                {prop:'disabled',type:'Boolean',default:'false',description:"开关按钮禁用状态"},
+                {prop:'loading',type:'Boolean',default:'false',description:"开关按钮加载中状态"},
+                {prop:'focus',type:'Boolean',default:'true',description:"开关按钮的聚焦阴影"},
+            ]
+        }
 
-        const data = [
-            {prop:'type',type:'String',default:'default',description:"按钮类型，可选值 <code>default</code>、<code>dashed</code>、<code>primary</code>、<code>info</code>、<code>success</code>、<code>warning</code>、<code>error</code>或者不设置"},
-            {prop:'transparent',type:'String',default:'default',description:"按钮透明度，可选值 <code>default</code>、<code>half</code>、<code>full</code>或者不设置"},
-            {prop:'shape',type:'String',default:'default',description:"按钮形状，可选值 <code>default</code>、<code>circle</code>、<code>square</code>或者不设置"},
-            {prop:'native-type',type:'String',default:'false',description:"设置button原生的type，可选值 <code>button</code>、<code>submit</code>、<code>rest</code>"},
-            {prop:'icon',type:'String',default:'-',description:"设置按钮的图标"},
-            {prop:'long',type:'Boolean',default:'-',description:"开启后，按钮的长度为 100%"},
-            {prop:'disabled',type:'Boolean',default:'false',description:"设置按钮为禁用状态"},
-            {prop:'loading',type:'Boolean',default:'false',description:"设置按钮为加载中状态"},
-            
-        ]
+        const buttonEvents = {
+            columns:[
+                {title:'事件名',key:'name',width:140},
+                {title:'说明',key:'description',type:'html'},
+                {title:'返回值',key:'return',width:100},
+            ],
+            data:[
+                {name:'click',return:'event',description:"点击时触发"}
+            ]
+        }
+
+        const buttonGroupProps = {
+            columns:[
+                {title:'属性',key:'prop',width:140},
+                {title:'说明',key:'description',type:'html'},
+                {title:'类型',key:'type',width:100},
+                {title:'默认值',key:'default',width:100}
+            ],
+            data:[
+                {prop:'shape',type:'String',default:'default',description:"按钮形状，可选值 <code>default</code>、<code>circle</code>、<code>square</code>或者不设置"},
+            ]
+        }
 
         return {
-            columns,
-            data
+            buttonProps,
+            buttonEvents,
+            buttonGroupProps
         }
     },
 }
