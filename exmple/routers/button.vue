@@ -42,6 +42,10 @@
             <Paragraph>
                 通过设置<Text code>transparent</Text>来控制透明度：<Text code>default</Text>、<Text code>half</Text>、<Text code>full</Text>
             </Paragraph>
+
+            <Divider />
+
+            <Code :html="codeList[0]" />
         </Card>
 
         <Divider hide />
@@ -241,8 +245,13 @@
 </template>
 
 <script>
-export default {
 
+import Code from "../components/code.vue"
+import codeList from '../codes/button'
+export default {
+    components:{
+        Code
+    },
     setup() {
         const buttonProps = {
             columns:[
@@ -293,7 +302,8 @@ export default {
         return {
             buttonProps,
             buttonEvents,
-            buttonGroupProps
+            buttonGroupProps,
+            codeList
         }
     },
 }

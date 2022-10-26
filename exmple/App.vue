@@ -79,9 +79,6 @@
 <script>
 import { ref } from 'vue'
 export default {
-    components: {
-        // TButton
-    },
     setup() {
         const currentName = ref('1')
         const currentSide = ref('1')
