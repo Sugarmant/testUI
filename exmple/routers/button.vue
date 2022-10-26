@@ -198,32 +198,42 @@
                 通过设置<Text code>focus</Text>为false来使关闭阴影
             </Paragraph>
         </Card>
+
+        <Divider hide/> 
+        <Title h3>API</Title>
+
+        <Table border :columns="columns" :data="data"></Table>
     </Typo>
         
 </template>
 
 <script>
-// import {Button} from '../../src/index'
-
 import {ref} from 'vue'
 export default {
-    components:{
-        // Button
-    },
+
     setup() {
-        const size = ref('default')
-        const transparent = ref('default')
-        const shape = ref('default')
-        const disabled = ref(false)
-        const focus = ref(true)
-        const long = ref(false)
+        const columns = [
+            {title:'属性',key:'prop'},
+            {title:'说明',key:'description',type:'html'},
+            {title:'类型',key:'type'},
+            {title:'默认值',key:'default'}
+        ]
+
+        const data = [
+            {prop:'type',type:'String',default:'default',description:"按钮类型，可选值 <code>default</code>、<code>dashed</code>、<code>primary</code>、<code>info</code>、<code>success</code>、<code>warning</code>、<code>error</code>或者不设置"},
+            {prop:'transparent',type:'String',default:'default',description:"按钮透明度，可选值 <code>default</code>、<code>half</code>、<code>full</code>或者不设置"},
+            {prop:'shape',type:'String',default:'default',description:"按钮形状，可选值 <code>default</code>、<code>circle</code>、<code>square</code>或者不设置"},
+            {prop:'native-type',type:'String',default:'false',description:"设置button原生的type，可选值 <code>button</code>、<code>submit</code>、<code>rest</code>"},
+            {prop:'icon',type:'String',default:'-',description:"设置按钮的图标"},
+            {prop:'long',type:'Boolean',default:'-',description:"开启后，按钮的长度为 100%"},
+            {prop:'disabled',type:'Boolean',default:'false',description:"设置按钮为禁用状态"},
+            {prop:'loading',type:'Boolean',default:'false',description:"设置按钮为加载中状态"},
+            
+        ]
+
         return {
-            size,
-            transparent,
-            shape,
-            disabled,
-            focus,
-            long
+            columns,
+            data
         }
     },
 }

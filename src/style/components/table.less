@@ -1,29 +1,43 @@
+@tableWrapper:~"@{css-prefix}table-wrapper";
 @table:~"@{css-prefix}table";
 @tableTr:~"@{css-prefix}table-tbody-tr";
 
-.@{table}{width:100%;
-    &-thead{
-        &-tr{
+.@{tableWrapper}{width:100%;
+    .@{table}{width:100%;border:none;
+        &-auto{overflow:auto;
+            &::-webkit-scrollbar{width:5px;background-color:#f0f0f0}
+            &::-webkit-scrollbar-thumb{background-color:#ccc}
+        }
+        &-thead{
+            &-tr{
 
+            }
+            &-td{height:48px;box-sizing:border-box;background-color:#f8f8f9;padding:8px 0;color:@text-color;font-size:14px;}
         }
-        &-td{height:48px;box-sizing:border-box;background-color:#f8f8f9;padding:8px 0;color:@text-color;font-size:14px}
-    }
-    &-tbody{width:100%;
-        &-tr{transition:.1s;
-            &:hover{background-color:fade(@primary-color,5)}
+        &-tbody{width:100%;
+            &-tr{transition:.1s;
+                &:hover{background-color:fade(@primary-color,5)}
+            }
+            &-td{height:48px;padding:0;border-bottom:solid 1px #eee;
+                
+            }
         }
-        &-td{height:48px;padding:0;border-bottom:solid 1px #eee;
-            
-        }
-    }
 
-    &-cell{padding:0 12px;display:flex;
-        span{color:@text-color;font-size:14px}
-    }
-
-    &-stripe{
-        .@{tableTr}:nth-child(2n){background-color:#f8f8f8;
-            &:hover{background-color:fade(@primary-color,5)}
+        &-cell{padding:0 12px;display:flex;
+            span{color:@text-color;font-size:14px}
         }
+
+        &-stripe{
+            .@{tableTr}:nth-child(2n){background-color:#f8f8f8;
+                &:hover{background-color:fade(@primary-color,5)}
+            }
+        }
+
+        &-border{
+            th{border-top:solid 1px #ddd}
+            th:first-child,td:first-child{border-left:solid 1px #ddd}
+            th,td{border-right:solid 1px #ddd;border-bottom:solid 1px #ddd}
+        }
+
     }
 }
