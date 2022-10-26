@@ -149,36 +149,6 @@
         </Card>
 
         <Divider hide />
-        
-        <Title h3>组合按钮</Title>
-        <Card>
-            <Space vertical>
-                <Space>
-                    <ButtonGroup>
-                        <Button>default</Button>
-                        <Button type="dashed">dashed</Button>
-                        <Button type="primary">primary</Button>
-                        <Button type="info">info</Button>
-                        <Button type="success">success</Button>
-                        <Button type="warning">warning</Button>
-                        <Button type="error">error</Button>
-                    </ButtonGroup>
-                </Space>
-                <Space>
-                    <ButtonGroup>
-                        <Button type="primary" transparent="half">primary</Button>
-                        <Button type="primary" transparent="half">primary</Button>
-                        <Button type="primary" transparent="half">primary</Button>
-                    </ButtonGroup>
-                </Space>
-            </Space>
-            <Divider/>
-            <Paragraph>
-                通过组件<Text code>ButtonGroup</Text>来使按钮组合起来
-            </Paragraph>
-        </Card>
-
-        <Divider hide />
 
         <Title h3>取消focus阴影</Title>
         <Card>
@@ -199,6 +169,62 @@
             </Paragraph>
         </Card>
 
+        <Divider hide />
+        
+        <Title h3>组合按钮</Title>
+        <Card>
+            <Space vertical>
+                <Space>
+                    <ButtonGroup size="small">
+                        <Button>default</Button>
+                        <Button type="dashed">dashed</Button>
+                        <Button type="primary">primary</Button>
+                        <Button type="info">info</Button>
+                        <Button type="success">success</Button>
+                        <Button type="warning">warning</Button>
+                        <Button type="error">error</Button>
+                    </ButtonGroup>
+                </Space>
+                <Space>
+                    <ButtonGroup>
+                        <Button type="primary" transparent="half">primary</Button>
+                        <Button type="primary" transparent="half">primary</Button>
+                        <Button type="primary" transparent="half">primary</Button>
+                    </ButtonGroup>
+                </Space>
+                <Space>
+                    <ButtonGroup shape="circle">
+                        <Button type="primary" transparent="half">primary</Button>
+                        <Button type="primary" transparent="half">primary</Button>
+                        <Button type="primary" transparent="half">primary</Button>
+                    </ButtonGroup>
+                </Space>
+            </Space>
+            <Divider/>
+            <Paragraph>
+                通过组件<Text code>ButtonGroup</Text>来使按钮组合起来
+            </Paragraph>
+        </Card>
+
+        <Title h3>竖排按钮</Title>
+        <Card>
+            <Space>
+                <ButtonGroup vertical>
+                    <Button>default</Button>
+                    <Button type="dashed">dashed</Button>
+                    <Button type="primary">primary</Button>
+                    <Button type="info">info</Button>
+                    <Button type="success">success</Button>
+                    <Button type="warning">warning</Button>
+                    <Button type="error">error</Button>
+                </ButtonGroup>
+            </Space>
+            <Divider/>
+            <Paragraph>
+                通过组件<Text code>ButtonGroup</Text>的属性<Text code>vertical</Text>来使按钮竖排
+            </Paragraph>
+        </Card>
+
         <Divider hide/> 
         <Title h3>API</Title>
 
@@ -208,7 +234,7 @@
         <Title h4>Button Events</Title>
         <Table border :columns="buttonEvents.columns" :data="buttonEvents.data"></Table>
 
-        <Title h4>ButtonGroup props</Title>
+        <Title h4>ButtonGroup Props</Title>
         <Table border :columns="buttonGroupProps.columns" :data="buttonGroupProps.data"></Table>
     </Typo>
         
@@ -259,6 +285,8 @@ export default {
             ],
             data:[
                 {prop:'shape',type:'String',default:'default',description:"按钮形状，可选值 <code>default</code>、<code>circle</code>、<code>square</code>或者不设置"},
+                {prop:'size',type:'String',default:'default',description:"按钮大小，可选值为 <code>large</code>、<code>small</code>、<code>default</code> 或者不设置"},
+                {prop:'vertical',type:'Boolean',default:'false',description:"设置按钮竖排"},
             ]
         }
 
@@ -270,3 +298,8 @@ export default {
     },
 }
 </script>
+
+
+<style>
+    table code{background-color:#fff5f5;color:#fa795e;font-weight:bold;padding:5px;border-radius:4px;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;}
+</style>
