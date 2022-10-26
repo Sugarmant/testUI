@@ -119,8 +119,8 @@ body {
     border-radius: 4px;
 }
 
-.iconMenu{color:#808695;margin-bottom:24px;
-    .iconBtn{cursor:pointer;transition:.1s;}
+.iconMenu{color:#808695;
+    .iconBtn{cursor:pointer;transition:.1s;-moz-user-select:none;-webkit-user-select:none;user-select:none;}
     .iconBtn:hover{color:#707684}
 }
 </style>

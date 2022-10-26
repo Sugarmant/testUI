@@ -13,12 +13,13 @@ export default defineComponent({
                 return oneOf(val,['left','center','right'])
             },
             default:'left'
-        }
+        },
+        length:Number,
     },
     render () {
         const slots = this.$slots.default && this.$slots.default()
         return (
-            <div class={{
+            <div style={this.length>0?`margin:${this.length}px 0`:''} class={{
                 [prefix]:true,
                 [`${prefix}-vertical`]:this.vertical,
                 [`${prefix}-dashed`]:this.dashed,
