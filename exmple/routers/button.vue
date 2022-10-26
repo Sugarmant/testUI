@@ -45,7 +45,13 @@
 
             <Divider />
 
-            <Code :html="codeList[0]" />
+            <Row justify="end">
+                <div class="iconMenu"><Space>
+                    <div class="iconBtn"><Icon :size="20" icon="&#xe7dd;" /></div>
+                    <div @click="showCode1=!showCode1" class="iconBtn"><Icon :size="20" icon="&#xe7ae;" /></div>
+                </Space></div>
+            </Row>
+            <Code v-if="showCode1" :html="codeList[0]" />
         </Card>
 
         <Divider hide />
@@ -252,6 +258,11 @@ export default {
     components:{
         Code
     },
+    data(){
+        return {
+            showCode1:false
+        }
+    },
     setup() {
         const buttonProps = {
             columns:[
@@ -310,6 +321,6 @@ export default {
 </script>
 
 
-<style>
+<style lang="less">
     table code{background-color:#fff5f5;color:#fa795e;font-weight:bold;padding:5px;border-radius:4px;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;}
 </style>

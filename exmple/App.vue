@@ -118,4 +118,9 @@ body {
     padding: 30px;
     border-radius: 4px;
 }
+
+.iconMenu{color:#808695;margin-bottom:24px;
+    .iconBtn{cursor:pointer;transition:.1s;}
+    .iconBtn:hover{color:#707684}
+}
 </style>
