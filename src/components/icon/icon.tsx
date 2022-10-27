@@ -5,7 +5,9 @@ export default defineComponent({
     name: 'Icon',
     props: {
         size:{
-            type:Number || String,
+            validator(val:number | string){
+                return typeof val === 'number' || typeof val === 'string'
+            },
             default:16
         },
         icon:{

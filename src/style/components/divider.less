@@ -1,10 +1,10 @@
 @divider: ~"@{css-prefix}divider";
 
-.@{divider}{display:block;height:1px;width:100%;min-width:100%;margin:24px 0;clear:both;background-color:#eee;
+.@{divider}{display:inline-block;height:1px;width:100%;min-width:100%;margin:24px 0;clear:both;background-color:#eee;
     &-dashed:not(&-left):not(&-center):not(&-right){border-top:dashed 1px #eee;background:none;}
     &-left,&-center,&-right{height:0;position:relative;display:flex;align-items:center;
-        &::before{width:5%;content:'';display:block;border-top:solid 1px #eee}
-        &::after{width:95%;content:'';display:block;border-top:solid 1px #eee}
+        &::before{width:5%;content:'';display:inline-block;border-top:solid 1px #eee}
+        &::after{width:95%;content:'';display:inline-block;border-top:solid 1px #eee}
         &.@{divider}-dashed{
             &::before{border-top-style:dashed}
             &::after{border-top-style:dashed}

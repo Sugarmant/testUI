@@ -28,14 +28,42 @@
         <Title h3>API</Title>
         <Title h4>Icon Props</Title>
         <Table border :columns="IconProps.columns" :data="IconProps.data"></Table>
+
+        <Divider hide />
+
+        <Title center h3>所有图标</Title>
+        
+        <div class="iconList">
+            <div @click="showIcon(item)" :class="`iconItem ${currentIcon.name === item.name?'active':''}`" v-for="(item,key) in iconList" :key="key">
+                <div class="icon">
+                    <Icon :size="36" :icon="item.code"></Icon>
+                </div>
+            </div>
+        </div>
     </Typo>
+
+
+    <div class="fixedTip" v-if="currentIcon.name">
+        <div class="name">{{currentIcon.name}}</div>
+        <div class="content">
+            <div style="color:#bec7d5;font-size:14px;margin-bottom:4px;">{{copyMsg}}</div>
+            <Space>
+                <div @click="copyWhole" class="code">
+                    &lt;<span class="labelName">Icon</span><span class="labelProp"> icon</span>=<span class="labelPropValue">"{{currentIcon.code}}"</span>>&lt;/<span class="labelName">Icon</span>>
+                </div>
+                <Button @click="copyCode" :focus="false" type="warning" transparent="full" icon="&#xe7dd;"/>
+            </Space>
+        </div>
+        
+    </div>
 
 </template>
 
 <script>
 
 import Code from '../components/code.vue'
-import iconCode from '../codes/icon'
+import iconCode,{iconList} from '../codes/icon'
+import {onUnmounted, ref} from 'vue'
 export default {
     components:{
         Code
@@ -59,9 +87,82 @@ export default {
                 {prop:'size',type:'Number | String',default:'16',description:"图标大小，Number类型为px，String类型可自定义em,rem或其他"},
             ]
         }
+
+        const currentIcon = ref({})
+        const copyMsg = ref('')
+
+        const showIcon = item=>{
+            setTimeout(()=>{
+                copyMsg.value = ""
+                currentIcon.value = item
+            })
+        }
+
+        function bind(e){
+            const current = currentIcon.value
+            setTimeout(()=>{
+                if(document.querySelector('.fixedTip') && document.querySelector('.fixedTip').contains(e.target)) return
+                if(current.name === currentIcon.value.name) {
+                    currentIcon.value = {}
+                    copyMsg.value = ""
+                }
+            },50)
+        }
+
+        const copy = val=>{
+            let copyInput = document.createElement('input');
+            document.body.appendChild(copyInput);
+            copyInput.setAttribute('value', val);
+            copyInput.select();
+            document.execCommand("Copy");
+            copyInput.remove();
+        }
+
+        const copyWhole = ()=>{
+            copy('<Icon icon="'+currentIcon.value.code+'"></Icon>')
+            copyMsg.value = "已复制整段代码"
+        }
+
+        const copyCode = ()=>{
+            copy(currentIcon.value.code)
+            copyMsg.value = "已复制Icon Code"
+        }
+
+
+        document.addEventListener('click',bind,true)
+
+        onUnmounted(()=>{
+            document.removeEventListener('click',bind,true)
+        })
         return {
-            IconProps
+            IconProps,
+            iconList,
+            currentIcon,
+            copyMsg,
+
+            showIcon,
+            copy,
+            copyWhole,
+            copyCode
         }
     },
 }
 </script>
+
+<style scoped lang="less">
+    .iconList{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+        .iconItem{width:70px;height:70px;transition:.1s;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:8px;user-select:none;
+            &:hover:not(.active){box-shadow:0px 3px 6px 0px rgb(0 0 0 / 10%), 0px 1px 3px 0px rgb(0 0 0 / 8%)}
+            &.active{background-color:#ecf0f6;cursor:default;}
+        }
+    }
+
+    .fixedTip{width:600px;left:calc(50% + 100px);transform:translate(-50%,0);position:fixed;background-color:#272a2f;height:80px;padding:0 20px 0 30px;border-radius:15px;bottom:15px;box-shadow:0px 16px 32px 0px rgb(0 0 0 / 10%), 0px 8px 16px 0px rgb(0 0 0 / 8%);display:flex;justify-content:space-between;align-items:center;
+        .name{color:#fff;}
+        .code{background-color:#363e49;color:#97a1b6;line-height:32px;font-size:16px;padding:0 15px;border-radius:4px;
+            .labelName{color:#ffc866}
+            .labelProp{color:#e48d26}
+            .labelPropValue{color:#a4dd5b}
+        }
+    }
+</style>

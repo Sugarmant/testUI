@@ -4,7 +4,9 @@ const prefix = 't-typography'
 export default defineComponent({
     name: 'Title',
     props: {
-        h1:Boolean,h2:Boolean,h3:Boolean,h4:Boolean,h5:Boolean,h6:Boolean
+        h1:Boolean,h2:Boolean,h3:Boolean,h4:Boolean,h5:Boolean,h6:Boolean,
+
+        center:Boolean
     },
     render () {
         const slots = this.$slots.default && this.$slots.default()
@@ -14,6 +16,9 @@ export default defineComponent({
                 level = prop.slice(-1)
             }
         }
-        return h(`h${level}`,{class:`${prefix}-h${level}`},slots)
+        return h(`h${level}`,{class:{
+            [`${prefix}-h${level}`]:true,
+            [`${prefix}-center`]:this.center
+        }},slots)
     }
 })

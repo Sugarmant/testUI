@@ -101,7 +101,6 @@ export default defineComponent({
             }
 
             const avarageWidth = ($wrapper.value.clientWidth-allSettledWidth)/(this.columns.length-settledLength)
-            console.log($tbodyBody.value.querySelector('colgroup').childNodes)
             for(const col of $theadBody.value.querySelector('colgroup').childNodes){
                 if(col instanceof HTMLTableColElement && !col.getAttribute('width')) col.setAttribute('width',avarageWidth+'')
             }
