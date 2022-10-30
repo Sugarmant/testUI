@@ -6,7 +6,7 @@ import { default as Tree } from './components/tree';
 import { default as Step } from './components/step';
 import { default as Steps } from './components/steps'
 import { default as Progress } from './components/progress'
-import { default as Select } from './components/steps'
+import { default as Select } from './components/select'
 import { default as Header } from './components/Header'
 import { default as Layout } from './components/Layout'
 import { default as Menu } from './components/Menu'
