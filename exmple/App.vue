@@ -60,6 +60,12 @@
                                     <Menu to="/progress" name="3-4-1"><span>Progress<em>进度条</em></span></Menu>
                                 </MenuGroup>
                             </Submenu>
+                            <Submenu name="3-5">
+                                <template #title>交互组件</template>
+                                <MenuGroup title="一号" vertical>
+                                    <Menu to="/tooltip" name="3-5-1"><span>Tooltip<em>文字提示</em></span></Menu>
+                                </MenuGroup>
+                            </Submenu>
                         </MenuGroup>
                     </Submenu>
                 </MenuGroup>

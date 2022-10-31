@@ -20,7 +20,8 @@ const router = createRouter({
         {path:'/typography',component:()=>import('./typography.vue')},
         {path:'/card',component:()=>import('./card.vue')},
         {path:'/divider',component:()=>import('./divider.vue')},
-        {path:'/table',component:()=>import('./table.vue')}
+        {path:'/table',component:()=>import('./table.vue')},
+        {path:'/tooltip',component:()=>import('./tooltip.vue')}
     ]
 })
 
